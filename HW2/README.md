@@ -11,6 +11,7 @@ In your original pdm-f24 directory, `git pull` to get new `hw2` directory.
 cd HW2/src
 python main.py
 ```
+Type the target object. Then, **remember to press "ANY KEY" after selecting start point (or the terminal will freezes)**
 
 ## Result
 You can see the result in `HW2/result`
