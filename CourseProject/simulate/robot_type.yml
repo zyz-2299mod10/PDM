@@ -1,0 +1,2 @@
+franka:
+  "urdf/franka_description/robots/franka_panda.urdf"
