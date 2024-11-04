@@ -9,6 +9,7 @@ from pytorch3d.transforms import (
     matrix_to_quaternion, 
     euler_angles_to_matrix,
 )
+from scipy.spatial.transform import Rotation as R
 
 def quat_axis(q, axis=0):
     basis_vec = torch.zeros(q.shape[0], 3, device=q.device)
@@ -19,6 +20,16 @@ def orientation_error(desired, current):
     cc = quat_conjugate(current)
     q_r = quat_mul(desired, cc)
     return q_r[:, 0:3] * torch.sign(q_r[:, 3]).unsqueeze(-1)
+
+def euler_rotation_error_to_quaternion(euler_error):
+    r = R.from_euler('xyz', euler_error, degrees=True) 
+    quaternion = r.as_quat()  # [x, y, z, w]
+
+    vector_part = quaternion[:3]  
+    sign_adjustment = np.sign(quaternion[3])  
+    result_vector = vector_part * sign_adjustment
+
+    return result_vector
 
 def cube_grasping_yaw(q, corners):
     """ returns horizontal rotation required to grasp cube """

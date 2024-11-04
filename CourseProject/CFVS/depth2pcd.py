@@ -139,7 +139,7 @@ def parse_args():
 def main(args):
 
     mode =  'PDM_dataset' if args.mode == 'train' else 'PDM_dataset_inference'
-    type_mode = '_' + args.type if args.mode == 'train' else ''
+    type_mode = '_' + args.type if args.mode == 'train' else '_inference'
     obj = args.object
 
     if args.data == 'CFVS':
@@ -312,8 +312,9 @@ def main(args):
             concat_xyz_in_world *=1000
             '''
         if args.crop_pcd == True:
+            drop_point_num = 800
             crop_concat_xyz_in_world = []
-            bound = 0.05
+            bound = 0.07
             index_list = []
             for idx, xyz in enumerate(concat_xyz_in_world):
                 x = xyz[0] / 1000  # unit:m
@@ -330,15 +331,28 @@ def main(args):
                 print('Error', key)
                 assert False
             concat_xyz_in_world = np.array(crop_concat_xyz_in_world)
-            print(concat_xyz_in_world.shape)
-            if concat_xyz_in_world.shape[0] > 2048:
-                concat_xyz_in_world, drop_idx = specific_point_dropout(concat_xyz_in_world, drop_num=concat_xyz_in_world.shape[0]-2048)
+            # print(concat_xyz_in_world.shape)
+            if concat_xyz_in_world.shape[0] > drop_point_num:
+                concat_xyz_in_world, drop_idx = specific_point_dropout(concat_xyz_in_world, drop_num=concat_xyz_in_world.shape[0]-drop_point_num)
                 seg_label = np.delete(seg_label, drop_idx, axis=0)
                 seg_color = np.delete(seg_color, drop_idx, axis=0)
-            elif concat_xyz_in_world.shape[0] < 2048:
+            elif concat_xyz_in_world.shape[0] < drop_point_num:
+                # pcd = o3d.geometry.PointCloud()
+                # pcd.points = o3d.utility.Vector3dVector(concat_xyz_in_world)
+                # trimesh = o3d.geometry.TriangleMesh.create_coordinate_frame(size=500)   
+                # o3d.visualization.draw_geometries([trimesh, pcd])
+                # exit()
+
                 data.pop(key, None)
                 print('pop key: ', key)
+                print('point num: ', concat_xyz_in_world.shape)
                 continue
+
+        # pcd = o3d.geometry.PointCloud()
+        # pcd.points = o3d.utility.Vector3dVector(concat_xyz_in_world)
+        # trimesh = o3d.geometry.TriangleMesh.create_coordinate_frame(size=500)   
+        # o3d.visualization.draw_geometries([trimesh, pcd])
+        # exit()
 
         # for heatmap
         heatmap_label = []

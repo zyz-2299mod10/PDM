@@ -19,7 +19,7 @@ heatmap_key = 'heatmap'
 # unknow
 unit_delta_xyz_key = 'unit_delta_translation'
 segmentation_key = 'segmentation'
-delta_rot_euler_key = 'delta_rot_euler'
+delta_rot_euler_key = 'r_euler'
 
 # The bounding box given by Database is tight, make it losser
 bbox_scale = 1.25

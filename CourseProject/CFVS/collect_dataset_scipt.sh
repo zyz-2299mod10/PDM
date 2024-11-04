@@ -8,7 +8,7 @@
 #python collect_rollout_data_for_kovis.py --date 2022-06-01-tilt --iter 1750 --data_type train --tilt
 #python collect_rollout_data_for_kovis.py --date 2022-06-01-tilt --iter 75 --data_type test --tilt
 ### square hole
-python collect_rollout_data_for_kovis.py --date 2022-09-16-test --iter 35 --data_type test --yaw --tilt
+#python collect_rollout_data_for_kovis.py --date 2022-09-16-test --iter 35 --data_type test --yaw --tilt
 #python collect_rollout_data_for_kovis.py --date 2022-06-19-notilt-yaw --iter 35 --data_type test --yaw
 #python collect_rollout_data_for_kovis.py --date 2022-06-19-notilt-yaw --iter 1500 --data_type train --yaw
 #python collect_rollout_data_for_kovis.py --date 2022-06-16-tilt-yaw --iter 35 --data_type test --yaw --tilt

@@ -18,6 +18,13 @@ Basic setting:
 1. Custom parameters and asset/urdf root path
 2. Initiallize robot and table configration
 '''
+# Simulate Objects
+# cap_name = "Arrow_cube_cap_crop.urdf" #"Arrow_cube_cap.urdf"
+# bottle_name = "Arrow_cube_bottle_enlarge.urdf" #"Arrow_cube_bottle.urdf"
+
+cap_name = "Circle_cube_cap.urdf" 
+bottle_name = "Circle_cube_bottle.urdf" 
+
 # Add custom arguments
 custom_parameters = [ 
     {"name": "--device", "type": str, "default": "cuda", "help": "[cuda, cpu]"},
@@ -43,23 +50,23 @@ Env = environment(custom_parameters=custom_parameters, robot_root=asset_root, ur
 Env.set_box_asset(dims=table_dims, fix_base=True, disable_gravity=True, pos=table_pose.p, collision=0, name='table')
 
 # usb
-usb_urdf_info = get_urdf_info(urdf_root, "Arrow_cube_cap.urdf")
+usb_urdf_info = get_urdf_info(urdf_root, cap_name)
 usb_aabb = usb_urdf_info.get_mesh_aabb_size()
 usb_pose = gymapi.Transform()
-usb_pose.p = gymapi.Vec3(table_pose.p.x + 0.1, table_pose.p.y + 0.1, table_dims.z + 0.5 * usb_aabb[2])
-Env.set_mesh_asset(mesh_file="Arrow_cube_cap.urdf" , fix_base=False, disable_gravity=False, name='usb', 
+usb_pose.p = gymapi.Vec3(table_pose.p.x + 0.1, table_pose.p.y + 0.1, table_dims.z + 0.5 * usb_aabb[2] + 0.05)
+Env.set_mesh_asset(mesh_file=cap_name , fix_base=False, disable_gravity=False, name='usb', 
                    pos = usb_pose.p, collision=1, color=gymapi.Vec3(1, 0, 0), semantic_id=400, random_rot_range=[[[0,0,1],[-0.5, -0.5]]])
 
 # socket
-socket_urdf_info = get_urdf_info(urdf_root, "Arrow_cube_bottle.urdf")
+socket_urdf_info = get_urdf_info(urdf_root, bottle_name)
 socket_aabb = socket_urdf_info.get_mesh_aabb_size()
 socket_pose = gymapi.Transform()
 socket_pose.p.x = usb_pose.p.x 
 socket_pose.p.y = usb_pose.p.y 
 socket_pose.p.z = table_dims.z + socket_aabb[2]
-Env.set_mesh_asset(mesh_file="Arrow_cube_bottle.urdf" , fix_base=False, disable_gravity=False, name='socket', 
+Env.set_mesh_asset(mesh_file=bottle_name , fix_base=False, disable_gravity=False, name='socket', 
                    pos = socket_pose.p, collision=2, color=gymapi.Vec3(0, 1, 0), semantic_id=600,
-                   random_pos_range=[[-0.065, 0.065], [-0.08, -0.13], [0, 0]], random_rot_range=[[[0,0,1],[-0.5, -0.5]]])
+                   random_pos_range=[[-0.065, 0.065], [-0.08, -0.13], [0, 0]], random_rot_range=[[[0,0,1],[-2, 2]]])
 
 # set camera
 p = gymapi.Vec3(0.07, 0, 0.07)
@@ -79,6 +86,7 @@ for _ in range(50):
 '''
 Execute action
 '''
+
 mover = Mover(Env)
 
 grasp_pos, grasp_rot = mover.get_naive_grasping_pose('usb')
@@ -87,48 +95,58 @@ mover.IK_move(goal_pos=grasp_pos, goal_rot=grasp_rot, closed=False, T=500)
 mover.IK_move(goal_pos=grasp_pos, goal_rot=grasp_rot, closed=True, T=200)
 mover.IK_move(goal_pos=grasp_pos + torch.tensor([0, 0, 0.075], device=mover.env.device), goal_rot=grasp_rot, closed=True, T=500)
 
-pred_pose = mover.get_pridicted_hole_pose(camera_id=0, visualize=False)
+pred_pose = mover.get_pridicted_hole_pose(camera_id=0, visualize=True)
 
-# set curobo goal pose
-hand_goal_position = []
-hand_goal_quaternion = []
-rb_states, dof_pos, _ = mover.env.step()
-for env_idx in range(mover.env.num_envs):
-    u = rb_states[mover.env.obj_idxs['usb'][env_idx], :3]
-    ur = rb_states[mover.env.obj_idxs['usb'][env_idx], 3:7]
-    e = rb_states[mover.env.obj_idxs['socket'][env_idx], :3]
-    er = rb_states[mover.env.obj_idxs['socket'][env_idx], 3:7] 
-    h = rb_states[mover.env.obj_idxs['hand'][env_idx], :3]
-    hr = rb_states[mover.env.obj_idxs['hand'][env_idx], 3:7]
+# hand_goal_position = []
+# hand_goal_quaternion = []
+# rb_states, dof_pos, _ = mover.env.step()
+# for env_idx in range(mover.env.num_envs):
+#     u = rb_states[mover.env.obj_idxs['usb'][env_idx], :3]
+#     ur = rb_states[mover.env.obj_idxs['usb'][env_idx], 3:7]
+#     e = rb_states[mover.env.obj_idxs['socket'][env_idx], :3]
+#     er = rb_states[mover.env.obj_idxs['socket'][env_idx], 3:7]
+#     h = rb_states[mover.env.obj_idxs['hand'][env_idx], :3]
+#     hr = rb_states[mover.env.obj_idxs['hand'][env_idx], 3:7]
                 
-    # e[-1] = e[-1] + 0.075 # above hole
-    # end_pose_matrix = pq_to_H(e, er)
-    pred_pose[2, 3] = pred_pose[2, 3] + 0.075
-    usb_pose_matrix = pq_to_H(u, ur)
+#     # e[-1] = e[-1] + 0.01 # above hole
+#     # end_pose_matrix = pq_to_H(e, er)
+#     pred_pose[2, 3] = pred_pose[2, 3] + 0.075
+#     usb_pose_matrix = pq_to_H(u, ur)
 
-    # trans = end_pose_matrix @ torch.inverse(usb_pose_matrix)
-    trans = pred_pose @ torch.inverse(usb_pose_matrix)
+#     # trans = end_pose_matrix @ torch.inverse(usb_pose_matrix)
+#     trans = pred_pose @ torch.inverse(usb_pose_matrix)
 
-    hand_pose_matrix = pq_to_H(h, hr)
+#     hand_pose_matrix = pq_to_H(h, hr)
+#     goal_pose_matrix = trans @ hand_pose_matrix
+#     goal_pose_pq = H_2_Transform(goal_pose_matrix)
 
-    goal_pose_matrix = trans @ hand_pose_matrix
-    goal_pose_pq = H_2_Transform(goal_pose_matrix)
+#     hand_goal_position.append([goal_pose_pq.p.x , goal_pose_pq.p.y, goal_pose_pq.p.z])
+#     hand_goal_quaternion.append([goal_pose_pq.r.w, goal_pose_pq.r.x, goal_pose_pq.r.y, goal_pose_pq.r.z])
 
-    hand_goal_position.append([goal_pose_pq.p.x , goal_pose_pq.p.y, goal_pose_pq.p.z])
-    hand_goal_quaternion.append([goal_pose_pq.r.w, goal_pose_pq.r.x, goal_pose_pq.r.y, goal_pose_pq.r.z])
-
-mover.IK_move(goal_pos=torch.tensor(hand_goal_position, device=mover.env.device),
-              goal_rot=torch.tensor([[hand_goal_quaternion[0][1], hand_goal_quaternion[0][2], hand_goal_quaternion[0][3], hand_goal_quaternion[0][0]]], 
-                                     device=mover.env.device),
-              closed=True,
-              T=500) 
-
-# # put USB down
 # mover.IK_move(goal_pos=torch.tensor(hand_goal_position, device=mover.env.device),
 #               goal_rot=torch.tensor([[hand_goal_quaternion[0][1], hand_goal_quaternion[0][2], hand_goal_quaternion[0][3], hand_goal_quaternion[0][0]]], 
 #                                      device=mover.env.device),
-#               closed=False,
-#               T=200)
+#               closed=True, 
+#               T=500) 
+
+pred_pose[2, 3] = pred_pose[2, 3] + 0.05
+goal_pose_pq = H_2_Transform(pred_pose)
+obj_goal_position = np.array([[goal_pose_pq.p.x , goal_pose_pq.p.y, goal_pose_pq.p.z]])
+obj_goal_quaternion = np.array([[goal_pose_pq.r.x, goal_pose_pq.r.y, goal_pose_pq.r.z, goal_pose_pq.r.w]])
+mover.IK_move_object_to_target_pose(goal_pos=torch.tensor(obj_goal_position, device=mover.env.device, dtype=torch.float32),
+                                    goal_rot=torch.tensor(obj_goal_quaternion, device=mover.env.device, dtype=torch.float32),
+                                    obj_name = 'usb',
+                                    T=500) 
+
+for _ in range(4):
+    delta_pos, delta_rot = mover.get_predicted_refinement_pose(camera_id = 0, visualize = True)
+    delta_pos = delta_pos[np.newaxis, :]
+    delta_rot = delta_rot[np.newaxis, :]
+    print(delta_pos)
+    print(delta_rot)
+    mover.IK_move_from_transform_error(delta_pos=torch.tensor(delta_pos, device=mover.env.device), 
+                                       delta_rot=torch.tensor(delta_rot, device=mover.env.device),
+                                       T = 50, closed = True)
 
 # mover.return_initial_pose()
 

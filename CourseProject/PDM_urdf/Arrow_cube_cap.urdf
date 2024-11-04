@@ -25,6 +25,7 @@
       <geometry>
         <mesh filename="Arrow_cube_cap.obj" scale="0.6 0.6 0.6"/>
       </geometry>
+      <sdf resolution="300"/>
     </collision>
   </link>
 </robot>

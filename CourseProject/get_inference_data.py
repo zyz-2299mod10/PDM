@@ -229,9 +229,9 @@ viewer_target = gymapi.Vec3(table_pose.p.x, table_pose.p.y, 0.5)
 
 # camera setting
 cam_local_transform = gymapi.Transform()
-cam_local_transform.p = gymapi.Vec3(0.1, 0, 0.05)
+cam_local_transform.p = gymapi.Vec3(0.07, 0, 0.07)
 # flip_q = gymapi.Quat.from_axis_angle(gymapi.Vec3(1,0,0), np.radians(180))
-look_down = gymapi.Quat.from_axis_angle(gymapi.Vec3(0,1,0), np.radians(-90))
+look_down = gymapi.Quat.from_axis_angle(gymapi.Vec3(0,1,0), np.radians(-95))
 cam_local_transform.r = look_down # quat_mul_NotForTensor(flip_q, look_down)
 
 envs = []

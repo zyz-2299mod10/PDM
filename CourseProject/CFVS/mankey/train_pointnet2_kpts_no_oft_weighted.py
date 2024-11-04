@@ -57,10 +57,10 @@ def construct_dataset(is_train: bool) -> (torch.utils.data.Dataset, SupervisedKe
     db_config.pdc_data_root = '/home/hcis/YongZhe/PDM/PDM_dataset'
     if is_train:
         # db_config.config_file_path = '/tmp2/r09944001/robot-peg-in-hole-task/mankey/config/insertion_20220616_coarse_noiseaug3_rotscale.txt'
-        db_config.config_file_path = '/home/hcis/YongZhe/PDM/CFVS/mankey/config/Arrow_corase.txt'
+        db_config.config_file_path = '/home/hcis/YongZhe/PDM/CFVS/mankey/config/Square_coarse.txt'
     else:
         # db_config.config_file_path = '/tmp2/r09944001/robot-peg-in-hole-task/mankey/config/insertion_20220616_coarse_noiseaug3_rotscale.txt'
-        db_config.config_file_path = '/home/hcis/YongZhe/PDM/CFVS/mankey/config/Arrow_corase.txt'
+        db_config.config_file_path = '/home/hcis/YongZhe/PDM/CFVS/mankey/config/Square_coarse.txt'
     database = SpartanSupervisedKeypointDatabase(db_config)
 
     # Construct torch dataset

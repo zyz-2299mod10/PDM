@@ -122,15 +122,16 @@ asset_options = gymapi.AssetOptions()
 asset_options.fix_base_link = True
 table_asset = gym.create_box(sim, table_dims.x, table_dims.y, table_dims.z, asset_options)
 
+
 # create usb place
-usb_place = 'Arrow_cube_bottle.urdf'
+usb_place = 'Square_cube_bottle.urdf'
 asset_options = gymapi.AssetOptions()
 # asset_options.fix_base_link = True
 # asset_options.disable_gravity = True
 usb_place_asset = gym.load_asset(sim, urdf_root, usb_place, asset_options)
 
 # create usb
-usb = "Arrow_cube_cap.urdf" 
+usb = "Square_cube_cap.urdf" 
 asset_options = gymapi.AssetOptions()
 asset_options.disable_gravity = True
 asset_options.fix_base_link = True
@@ -229,9 +230,9 @@ viewer_target = gymapi.Vec3(table_pose.p.x, table_pose.p.y, 0.5)
 
 # camera setting
 cam_local_transform = gymapi.Transform()
-cam_local_transform.p = gymapi.Vec3(0.1, 0, 0.05)
+cam_local_transform.p = gymapi.Vec3(0.07, 0, 0.07)
 # flip_q = gymapi.Quat.from_axis_angle(gymapi.Vec3(1,0,0), np.radians(180))
-look_down = gymapi.Quat.from_axis_angle(gymapi.Vec3(0,1,0), np.radians(-90))
+look_down = gymapi.Quat.from_axis_angle(gymapi.Vec3(0,1,0), np.radians(-95))
 cam_local_transform.r = look_down # quat_mul_NotForTensor(flip_q, look_down)
 
 envs = []
@@ -274,9 +275,6 @@ for i in range(num_envs):
     usb_pose.p.x = table_pose.p.x + 0.15
     usb_pose.p.y = table_pose.p.y
     usb_pose.p.z = table_dims.z + 0.08
-    q1 = gymapi.Quat.from_axis_angle(gymapi.Vec3(1, 0, 0), -math.pi * 0.5)
-    q2 = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 1, 0), math.pi)
-    usb_pose.r = quat_mul_NotForTensor(q1, q2)
     usb_handle = gym.create_actor(env, usb_asset, usb_pose, "usb", i, 1)
     usb_color = gymapi.Vec3(np.random.uniform(0, 1), np.random.uniform(0, 1), np.random.uniform(0, 1))
     usb_color = gymapi.Vec3(1, 0, 0)
@@ -291,12 +289,10 @@ for i in range(num_envs):
     y [-0.08, -0.13] -> to front of USB
     r [-2pi, 2pi]
     '''
-    q1 = gymapi.Quat.from_axis_angle(gymapi.Vec3(1, 0, 0), math.pi * 0.5)
-    q2 = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 1, 0), np.random.uniform(-2, 2) * math.pi)
-    usb_place_pose.r = quat_mul_NotForTensor(q1, q2)
     usb_place_pose.p.x = usb_pose.p.x + np.random.uniform(-0.065, 0.065)
     usb_place_pose.p.y = usb_pose.p.y + np.random.uniform(-0.08, -0.13)
     usb_place_pose.p.z = table_dims.z * 0.5 + table_pose.p.z
+    usb_place_pose.r = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 0, 1), np.random.uniform(-2, 2) * math.pi)
     usb_place_handle = gym.create_actor(env, usb_place_asset, usb_place_pose, "usb place", i, 2)
     usb_place_color = gymapi.Vec3(0, 1, 0)
     gym.set_rigid_body_color(env, usb_place_handle, 0, gymapi.MESH_VISUAL_AND_COLLISION, usb_place_color)
@@ -304,11 +300,7 @@ for i in range(num_envs):
     usb_place_idxs.append(usb_place_idx)
 
     # add usb keypoints
-    # y_rot = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 1, 0), -0.5 * math.pi) # make x-axis up (same as CFVS setting)
-    # hole_kpt_rot = quat_mul_NotForTensor(usb_place_pose.r, y_rot)
-    hole_kpt_rot = usb_place_pose.r
-
-    top_bottom_dist = 0.012
+    top_bottom_dist = 0.015
     usb_bottom_pose.p = gymapi.Vec3(usb_pose.p.x, usb_pose.p.y, usb_pose.p.z - 0.03)
     usb_bottom_pose.r = usb_pose.r
     # usb_bottom_handle = gym.create_actor(env, usb_bottom, usb_bottom_pose, "usb_bottom", i+1, 1)
@@ -325,10 +317,10 @@ for i in range(num_envs):
     usb_top_kpts.append(utt)
 
     # add hole keypoints
-    y_rot = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 0, 1), 0.5 * math.pi) # make x-axis up (same as CFVS setting)
+    y_rot = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 1, 0), -0.5 * math.pi) # make x-axis up (same as CFVS setting)
     hole_kpt_rot = quat_mul_NotForTensor(usb_place_pose.r, y_rot)
 
-    hole_top_pose.p = gymapi.Vec3(usb_place_pose.p.x, usb_place_pose.p.y, usb_place_pose.p.z + 0.04)
+    hole_top_pose.p = gymapi.Vec3(usb_place_pose.p.x, usb_place_pose.p.y, usb_place_pose.p.z + 0.045)
     hole_top_pose.r = hole_kpt_rot
     # hole_top_handle = gym.create_actor(env, hole_top, hole_top_pose, "hole_top", i+1, 2)
     # gym.set_rigid_body_color(env, hole_top_handle, 0, gymapi.MESH_VISUAL_AND_COLLISION, usb_bottom_color)
@@ -515,7 +507,7 @@ while not gym.query_viewer_has_closed(viewer):
     # determine if we're holding the box (grippers are closed and box is near)
     grasp_offset = 0.11
     gripper_sep = dof_pos[:, 7] + dof_pos[:, 8]
-    gripped = (gripper_sep < 0.0486)
+    gripped = (gripper_sep < 0.021)
 
     # determine if we have reached the initial position; if so allow the hand to start moving to the box
     to_init = init_pos - hand_pos

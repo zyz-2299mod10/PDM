@@ -18,12 +18,12 @@ from util.other_isaacgym_fuction import (
     orientation_error,
     H_2_Transform,
     euler_xyz_to_matrix,
-    Set_box_oob,
     pq_to_H,
-    quat_mul_NotForTensor
+    quat_mul_NotForTensor,
+    euler_rotation_error_to_quaternion
     )
 from util.camera import compute_camera_intrinsics_matrix
-from hole_estimation.predict_hole_pose import CoarseMover
+from hole_estimation.predict_hole_pose import CoarseMover, FineMover
 
 class environment:
     def __init__(self, custom_parameters, robot_root, robot_type, urdf_root, robot_pose) -> None: 
@@ -114,7 +114,7 @@ class environment:
                        semantic_id:int = None,):
         '''
         rot: exact quaternion
-        random_pos_range: position random offset
+        random_pos_range: position random offset. format: [[x], [y], [z]]
         random_rot_range: given rotation axis and rotation range (degress). format: [[[axis], [range]]] (n* 3* 2)
         '''
         if name == None: 
@@ -177,7 +177,7 @@ class environment:
                       semantic_id:int = None,):
         '''
         rot: exact quaternion
-        random_pos_range: position random offset
+        random_pos_range: position random offset. format: [[x], [y], [z]]
         random_rot_range: given rotation axis and rotation range (degress). format: [[axis], [range]]
         '''        
         if name == None: 
@@ -576,14 +576,36 @@ class Mover():
         view_matrix[:3, 3] = np.array([t.p.x, t.p.y, t.p.z]) 
         view_matrix[3, :3] = np.array([0, 0, 0])
 
-        predictor = CoarseMover(model_path='/kpts/2024-10-24_03-21', model_name='pointnet2_kpts',
-                               checkpoint_name='best_model_e_553.pth', use_cpu=False, out_channel=9)
+        predictor = CoarseMover(model_path='/kpts/2024-11-03_08-22', model_name='pointnet2_kpts',
+                               checkpoint_name='best_model_e_390.pth', use_cpu=False, out_channel=9)
         H = predictor.predict_kpts_pose(depth=depth, factor=1, K=intrinsic.cpu().numpy(), view_matrix=view_matrix, fine_grain=False, visualize=visualize)        
         H = torch.tensor(H, device = self.env.device).to(torch.float32)
 
         # pq = H_2_Transform(H)
 
         return H
+    
+    def get_predicted_refinement_pose(self, camera_id, visualize = False):
+        if not self.env.camera:
+            raise Exception("Need to set camera first !!")
+        
+        rb_states, dof_pos, dof_vel = self.env.step()        
+        gripper_pos = rb_states[self.env.obj_idxs['hand'][0], :3].tolist()
+        gripper_pos[-1] = gripper_pos[-1] - 0.1
+
+        depth, rgb, segmentation, intrinsic, view_matrix, t = self.env.get_camera_img(id = camera_id, env_idx = 0)
+        depth = -depth
+        view_matrix[:3, :3] = view_matrix[:3, :3] @ R.from_euler("XYZ", np.array([np.pi, 0, 0])).as_matrix()
+        view_matrix[:3, 3] = np.array([t.p.x, t.p.y, t.p.z]) 
+        view_matrix[3, :3] = np.array([0, 0, 0])
+
+        predictor = FineMover(model_path='offset/2024-11-04_13-42', model_name='pointnet2_offset',
+                              checkpoint_name='best_model_e_41.pth', use_cpu=False, out_channel=9)
+        
+        delta_trans, delta_rot, delta_rot_euler = predictor.predict_refinement_pose(depth=depth, factor=1, K=intrinsic.cpu().numpy(), view_matrix=view_matrix,
+                                                                                    gripper_pose = gripper_pos, visualize = visualize)
+
+        return delta_trans, delta_rot_euler
 
     def control_ik(self, dpose): 
         damping = 0.05
@@ -623,6 +645,59 @@ class Mover():
             orn_err = orientation_error(goal_rot, hand_rot)
 
             dpose = torch.cat([pos_err, orn_err], -1).unsqueeze(-1)
+
+            # Deploy control based on type
+            pose_action[:, :7] = dof_pos.squeeze(-1)[:, :7] + self.control_ik(dpose)
+            pose_action[:, 7:9] = grip_acts
+
+            self.env.gym.set_dof_position_target_tensor(self.env.sim, gymtorch.unwrap_tensor(pose_action))
+    
+    def IK_move_object_to_target_pose(self,
+                                      goal_pos:torch.Tensor,
+                                      goal_rot:torch.Tensor,
+                                      obj_name = str,
+                                      T = 200):
+        '''
+        Currently only support franka
+        '''
+        rb_states, dof_pos, dof_vel = self.env.step()  
+        pose_action = torch.zeros_like(dof_pos).squeeze(-1).to(self.env.device)
+
+        grip_acts = torch.Tensor([[0., 0.]] * self.env.num_envs)
+
+        for _ in range(T):
+            rb_states, dof_pos, _ = self.env.step() 
+            obj_pos = rb_states[self.env.obj_idxs[obj_name], :3]
+            obj_rot = rb_states[self.env.obj_idxs[obj_name], 3:7]
+
+            # compute position and orientation error
+            pos_err = goal_pos - obj_pos
+            orn_err = orientation_error(goal_rot, obj_rot)
+
+            dpose = torch.cat([pos_err, orn_err], -1).unsqueeze(-1)
+
+            # Deploy control based on type
+            pose_action[:, :7] = dof_pos.squeeze(-1)[:, :7] + self.control_ik(dpose)
+            pose_action[:, 7:9] = grip_acts
+
+            self.env.gym.set_dof_position_target_tensor(self.env.sim, gymtorch.unwrap_tensor(pose_action))
+    
+    def IK_move_from_transform_error(self, delta_pos, delta_rot, T, closed = False):
+            
+        rb_states, dof_pos, dof_vel = self.env.step()  
+        pose_action = torch.zeros_like(dof_pos).squeeze(-1).to(self.env.device)
+
+        if closed:
+            grip_acts = torch.Tensor([[0., 0.]] * self.env.num_envs)
+        else:
+            grip_acts = torch.Tensor([[0.04, 0.04]] * self.env.num_envs)
+
+        delta_rot = euler_rotation_error_to_quaternion(delta_rot[0].cpu().numpy())
+        delta_rot = delta_rot[np.newaxis, :]
+        delta_rot = torch.tensor(delta_rot).to(delta_pos)
+        for _ in range(T):
+            rb_states, dof_pos, _ = self.env.step() 
+            dpose = torch.cat([delta_pos, delta_rot], -1).unsqueeze(-1)
 
             # Deploy control based on type
             pose_action[:, :7] = dof_pos.squeeze(-1)[:, :7] + self.control_ik(dpose)

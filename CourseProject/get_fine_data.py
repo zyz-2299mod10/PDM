@@ -123,14 +123,14 @@ asset_options.fix_base_link = True
 table_asset = gym.create_box(sim, table_dims.x, table_dims.y, table_dims.z, asset_options)
 
 # create usb place
-usb_place = 'Arrow_cube_bottle.urdf'
+usb_place = 'Square_cube_bottle.urdf'
 asset_options = gymapi.AssetOptions()
 # asset_options.fix_base_link = True
 # asset_options.disable_gravity = True
 usb_place_asset = gym.load_asset(sim, urdf_root, usb_place, asset_options)
 
 # create usb
-usb = "Arrow_cube_cap.urdf" 
+usb = "Square_cube_cap.urdf" 
 asset_options = gymapi.AssetOptions()
 asset_options.disable_gravity = True
 asset_options.fix_base_link = True
@@ -273,10 +273,7 @@ for i in range(num_envs):
     # add usb
     usb_pose.p.x = table_pose.p.x + 0.12
     usb_pose.p.y = table_pose.p.y
-    usb_pose.p.z = table_dims.z + 0.1 + np.random.uniform(-0.005, 0.01)
-    q1 = gymapi.Quat.from_axis_angle(gymapi.Vec3(1, 0, 0), -math.pi * 0.5)
-    q2 = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 1, 0), math.pi)
-    usb_pose.r = quat_mul_NotForTensor(q1, q2)
+    usb_pose.p.z = table_dims.z * 0.5 + table_pose.p.z + 0.1 + np.random.uniform(-0.008, 0.012)
     usb_handle = gym.create_actor(env, usb_asset, usb_pose, "usb", i, 1)
     usb_color = gymapi.Vec3(np.random.uniform(0, 1), np.random.uniform(0, 1), np.random.uniform(0, 1))
     usb_color = gymapi.Vec3(1, 0, 0)
@@ -291,12 +288,10 @@ for i in range(num_envs):
     y [-0.08, -0.13] -> to front of USB
     r [-2pi, 2pi]
     '''
-    q1 = gymapi.Quat.from_axis_angle(gymapi.Vec3(1, 0, 0), math.pi * 0.5)
-    q2 = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 1, 0), np.random.uniform(-2, 2) * math.pi)
-    usb_place_pose.r = quat_mul_NotForTensor(q1, q2)
-    usb_place_pose.p.x = usb_pose.p.x + np.random.uniform(-0.008, 0.008)
-    usb_place_pose.p.y = usb_pose.p.y + np.random.uniform(-0.008, 0.008)
+    usb_place_pose.p.x = usb_pose.p.x + np.random.uniform(-0.01, 0.01)
+    usb_place_pose.p.y = usb_pose.p.y + np.random.uniform(-0.01, 0.01)
     usb_place_pose.p.z = table_dims.z * 0.5 + table_pose.p.z 
+    usb_place_pose.r = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 0, 1), np.random.uniform(-2, 2) * math.pi)
     usb_place_handle = gym.create_actor(env, usb_place_asset, usb_place_pose, "usb place", i, 2)
     usb_place_color = gymapi.Vec3(0, 1, 0)
     gym.set_rigid_body_color(env, usb_place_handle, 0, gymapi.MESH_VISUAL_AND_COLLISION, usb_place_color)
@@ -304,11 +299,7 @@ for i in range(num_envs):
     usb_place_idxs.append(usb_place_idx)
 
     # add usb keypoints
-    # y_rot = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 1, 0), -0.5 * math.pi) # make x-axis up (same as CFVS setting)
-    # hole_kpt_rot = quat_mul_NotForTensor(usb_place_pose.r, y_rot)
-    hole_kpt_rot = usb_place_pose.r
-
-    top_bottom_dist = 0.012
+    top_bottom_dist = 0.015
     usb_bottom_pose.p = gymapi.Vec3(usb_pose.p.x, usb_pose.p.y, usb_pose.p.z - 0.03)
     usb_bottom_pose.r = usb_pose.r
     # usb_bottom_handle = gym.create_actor(env, usb_bottom, usb_bottom_pose, "usb_bottom", i+1, 1)
@@ -325,10 +316,11 @@ for i in range(num_envs):
     usb_top_kpts.append(utt)
 
     # add hole keypoints
-    y_rot = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 0, 1), 0.5 * math.pi) # make x-axis up (same as CFVS setting)
-    hole_kpt_rot = quat_mul_NotForTensor(usb_place_pose.r, y_rot)
+    # y_rot = gymapi.Quat.from_axis_angle(gymapi.Vec3(0, 0, 1), 0.5 * math.pi) # make x-axis up (same as CFVS setting)
+    # hole_kpt_rot = quat_mul_NotForTensor(usb_place_pose.r, y_rot)
+    hole_kpt_rot = usb_place_pose.r
 
-    hole_top_pose.p = gymapi.Vec3(usb_place_pose.p.x, usb_place_pose.p.y, usb_place_pose.p.z + 0.04)
+    hole_top_pose.p = gymapi.Vec3(usb_place_pose.p.x, usb_place_pose.p.y, usb_place_pose.p.z + 0.045)
     hole_top_pose.r = hole_kpt_rot
     # hole_top_handle = gym.create_actor(env, hole_top, hole_top_pose, "hole_top", i+1, 2)
     # gym.set_rigid_body_color(env, hole_top_handle, 0, gymapi.MESH_VISUAL_AND_COLLISION, usb_bottom_color)
@@ -423,27 +415,27 @@ net_force = gymtorch.wrap_tensor(_net_force)
 pos_action = torch.zeros_like(dof_pos).squeeze(-1).to(device)
 
 print("============================= grasp ===================================")
-with open("../grasping_pose/USBStick_2.pickle", "rb") as f:
-    grasp = pickle.load(f)
+# with open("../grasping_pose/USBStick_2.pickle", "rb") as f:
+#     grasp = pickle.load(f)
 
-z_mat = euler_xyz_to_matrix(0, 0, np.pi/2)
-grasp = torch.tensor(grasp, dtype = torch.float32) @ z_mat.repeat(100, 1, 1) # 100 for sample 100 grasping
+# z_mat = euler_xyz_to_matrix(0, 0, np.pi/2)
+# grasp = torch.tensor(grasp, dtype = torch.float32) @ z_mat.repeat(100, 1, 1) # 100 for sample 100 grasping
 
-grasping_id = 0
-t = H_2_Transform(grasp[grasping_id, ...])
+# grasping_id = 0
+# t = H_2_Transform(grasp[grasping_id, ...])
 
-grasp_position = [t.p.x, t.p.y, t.p.z]
-grasp_pos = []
-for env in range(num_envs):
-    gym.refresh_rigid_body_state_tensor(sim)
+# grasp_position = [t.p.x, t.p.y, t.p.z]
+# grasp_pos = []
+# for env in range(num_envs):
+#     gym.refresh_rigid_body_state_tensor(sim)
     
-    usb_pos_tmp = rb_states[usb_idxs[env], :3].tolist()
-    grasp_pos.append([grasp_position[0] + usb_pos_tmp[0],
-                      grasp_position[1] + usb_pos_tmp[1],
-                      grasp_position[2] + usb_pos_tmp[2] - 0.01])   
+#     usb_pos_tmp = rb_states[usb_idxs[env], :3].tolist()
+#     grasp_pos.append([grasp_position[0] + usb_pos_tmp[0],
+#                       grasp_position[1] + usb_pos_tmp[1],
+#                       grasp_position[2] + usb_pos_tmp[2] - 0.01])   
 
-grasp_pos = torch.tensor(grasp_pos).to(device)
-grasp_rot = torch.tensor([t.r.x, t.r.y, t.r.z, t.r.w]).repeat(num_envs, 1).to(device)
+# grasp_pos = torch.tensor(grasp_pos).to(device)
+# grasp_rot = torch.tensor([t.r.x, t.r.y, t.r.z, t.r.w]).repeat(num_envs, 1).to(device)
 print("=========================== grasp done ================================")
 
 
@@ -483,6 +475,8 @@ os.makedirs(f"{store_path}", exist_ok=True)
 os.makedirs(f"{image_path}", exist_ok=True)
 
 close_gripper = torch.full((num_envs, 1), False, dtype=torch.bool).to(device)
+up_rot = gymapi.Quat.from_axis_angle(gymapi.Vec3(1, 0, 0), math.pi)
+up_rot = torch.tensor([[up_rot.x, up_rot.y, up_rot.z, up_rot.w]]).repeat(num_envs, 1).to(device)
 while not gym.query_viewer_has_closed(viewer):    
     # step the physics
     gym.simulate(sim)
@@ -503,27 +497,24 @@ while not gym.query_viewer_has_closed(viewer):
     # ex. goal rot = 0.4 pi , hand rot should be -0.4 pi
     goal_pos = rb_states[usb_place_idxs, :3]
     goal_rot = rb_states[usb_place_idxs, 3:7]
-    HandShouldRot = copy.deepcopy(goal_rot)
-    HandShouldRot[:, -1] = -HandShouldRot[:, -1]
     
     hand_pos = rb_states[hand_idxs, :3]
     hand_rot = rb_states[hand_idxs, 3:7]
 
-    to_box = usb_pos - hand_pos
-    box_dist = torch.norm(to_box, dim=-1).unsqueeze(-1).to(device)
-
     # determine if we're holding the box (grippers are closed and box is near)
     grasp_offset = 0.11
     gripper_sep = dof_pos[:, 7] + dof_pos[:, 8]
-    gripped = (gripper_sep < 0.0486)
+    gripped = (gripper_sep < 0.021)
 
     # determine if we have reached the initial position; if so allow the hand to start moving to the box
     to_init = init_pos - hand_pos
     init_dist = torch.norm(to_init, dim=-1)
     IsGrasp = gripped.squeeze(-1)
 
-
     # end_pos = torch.where(IsGrasp, lift_position, grasp_pos)
+    grasp_pos = copy.deepcopy(usb_pos)
+    grasp_pos[:, -1] = grasp_pos[:, -1] + 0.1
+    grasp_rot = quat_mul(usb_rot, up_rot)
     end_pos = copy.deepcopy(grasp_pos)
     end_rot = copy.deepcopy(grasp_rot)
 
@@ -543,7 +534,7 @@ while not gym.query_viewer_has_closed(viewer):
     hand_grasp_rot_error = orientation_error(grasp_rot, hand_rot)
     HandGraspRotError= torch.norm(hand_grasp_rot_error, dim=-1).unsqueeze(-1).to(device)
     
-    if ((GraspPose2HandPoseDist < 0.006) & (HandGraspRotError < 0.006)).all(): 
+    if ((GraspPose2HandPoseDist < 0.001) & (HandGraspRotError < 0.001)).all(): 
         close_gripper = torch.full((num_envs, 1), True, dtype=torch.bool).to(device)
     GripperOpenScale = 0.04
     grip_acts = torch.where(close_gripper, torch.Tensor([[0., 0.]] * num_envs).to(device), torch.Tensor([[GripperOpenScale, GripperOpenScale]] * num_envs).to(device))
