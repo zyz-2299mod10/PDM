@@ -1,8 +1,8 @@
 
 # Quick start
 > [!IMPORTANT]
-> Install the **IsaacGym** first
-> Remember to change the urdf path and the isaacgym asset path at `line 36, 37` in `dummy_main_simulate.py`
+> * Install the **IsaacGym** first
+> * Remember to change the urdf path and the isaacgym asset path at `line 36, 37` in `dummy_main_simulate.py`
 
 ```
 python dummy_main_simulate.py --object Arrow 
