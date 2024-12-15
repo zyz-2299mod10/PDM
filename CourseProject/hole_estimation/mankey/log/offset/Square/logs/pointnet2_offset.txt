@@ -1,0 +1,1228 @@
+2024-11-05 23:48:39,553 - Model - INFO - PARAMETER ...
+2024-11-05 23:48:39,553 - Model - INFO - Namespace(batch_size=8, decay_rate=0.0001, epoch=300, learning_rate=0.001, log_dir=None, model='pointnet2_offset', num_point=800, optimizer='Adam', out_channel=9, process_data=False, use_cpu=False, use_normals=False, use_uniform_sample=False)
+2024-11-05 23:48:39,553 - Model - INFO - Load dataset ...
+2024-11-05 23:49:21,155 - Model - INFO - No existing model, starting training from scratch...
+2024-11-05 23:49:21,156 - Model - INFO - Start training...
+2024-11-05 23:49:21,157 - Model - INFO - Epoch 1 (1/300):
+2024-11-05 23:51:29,020 - Model - INFO - Train Translation Error: 1.967427, Rotation Error: 5.885682
+2024-11-05 23:51:58,604 - Model - INFO - Test Translation Error: 1.251293, Rotation Error: 5.873525
+2024-11-05 23:51:58,604 - Model - INFO - Best Test Translation Error: 99.900000, Rotation Error: 99.900000
+2024-11-05 23:51:58,605 - Model - INFO - Save model...
+2024-11-05 23:51:58,605 - Model - INFO - Saving at log/offset/2024-11-05_23-48/checkpoints/best_model_e_1.pth
+2024-11-05 23:51:58,648 - Model - INFO - Epoch 2 (2/300):
+2024-11-05 23:54:30,267 - Model - INFO - Train Translation Error: 1.227913, Rotation Error: 5.878513
+2024-11-05 23:54:58,984 - Model - INFO - Test Translation Error: 1.065927, Rotation Error: 5.878115
+2024-11-05 23:54:58,984 - Model - INFO - Best Test Translation Error: 1.251293, Rotation Error: 5.873525
+2024-11-05 23:54:58,984 - Model - INFO - Save model...
+2024-11-05 23:54:58,984 - Model - INFO - Saving at log/offset/2024-11-05_23-48/checkpoints/best_model_e_2.pth
+2024-11-05 23:54:59,022 - Model - INFO - Epoch 3 (3/300):
+2024-11-05 23:56:50,397 - Model - INFO - Train Translation Error: 1.173352, Rotation Error: 5.870441
+2024-11-05 23:57:17,305 - Model - INFO - Test Translation Error: 1.097107, Rotation Error: 5.853092
+2024-11-05 23:57:17,305 - Model - INFO - Best Test Translation Error: 1.065927, Rotation Error: 5.878115
+2024-11-05 23:57:17,306 - Model - INFO - Epoch 4 (4/300):
+2024-11-05 23:59:11,826 - Model - INFO - Train Translation Error: 1.066886, Rotation Error: 5.864318
+2024-11-05 23:59:38,125 - Model - INFO - Test Translation Error: 0.934287, Rotation Error: 5.812199
+2024-11-05 23:59:38,125 - Model - INFO - Best Test Translation Error: 1.065927, Rotation Error: 5.878115
+2024-11-05 23:59:38,126 - Model - INFO - Save model...
+2024-11-05 23:59:38,126 - Model - INFO - Saving at log/offset/2024-11-05_23-48/checkpoints/best_model_e_4.pth
+2024-11-05 23:59:38,163 - Model - INFO - Epoch 5 (5/300):
+2024-11-06 00:01:31,525 - Model - INFO - Train Translation Error: 0.933242, Rotation Error: 5.865380
+2024-11-06 00:01:57,804 - Model - INFO - Test Translation Error: 0.693460, Rotation Error: 5.847938
+2024-11-06 00:01:57,804 - Model - INFO - Best Test Translation Error: 0.934287, Rotation Error: 5.812199
+2024-11-06 00:01:57,805 - Model - INFO - Save model...
+2024-11-06 00:01:57,805 - Model - INFO - Saving at log/offset/2024-11-05_23-48/checkpoints/best_model_e_5.pth
+2024-11-06 00:01:57,841 - Model - INFO - Epoch 6 (6/300):
+2024-11-06 00:03:50,392 - Model - INFO - Train Translation Error: 0.884414, Rotation Error: 5.843107
+2024-11-06 00:04:16,970 - Model - INFO - Test Translation Error: 1.070231, Rotation Error: 5.836197
+2024-11-06 00:04:16,970 - Model - INFO - Best Test Translation Error: 0.693460, Rotation Error: 5.847938
+2024-11-06 00:04:16,970 - Model - INFO - Epoch 7 (7/300):
+2024-11-06 00:06:10,948 - Model - INFO - Train Translation Error: 0.863769, Rotation Error: 5.849002
+2024-11-06 00:06:37,745 - Model - INFO - Test Translation Error: 0.551159, Rotation Error: 5.867330
+2024-11-06 00:06:37,746 - Model - INFO - Best Test Translation Error: 0.693460, Rotation Error: 5.847938
+2024-11-06 00:06:37,746 - Model - INFO - Save model...
+2024-11-06 00:06:37,746 - Model - INFO - Saving at log/offset/2024-11-05_23-48/checkpoints/best_model_e_7.pth
+2024-11-06 00:06:37,782 - Model - INFO - Epoch 8 (8/300):
+2024-11-06 00:08:30,478 - Model - INFO - Train Translation Error: 0.861998, Rotation Error: 5.855640
+2024-11-06 00:08:57,022 - Model - INFO - Test Translation Error: 0.737800, Rotation Error: 5.879351
+2024-11-06 00:08:57,022 - Model - INFO - Best Test Translation Error: 0.551159, Rotation Error: 5.867330
+2024-11-06 00:08:57,022 - Model - INFO - Epoch 9 (9/300):
+2024-11-06 00:10:50,109 - Model - INFO - Train Translation Error: 0.814806, Rotation Error: 5.843554
+2024-11-06 00:11:16,671 - Model - INFO - Test Translation Error: 0.575229, Rotation Error: 5.833234
+2024-11-06 00:11:16,671 - Model - INFO - Best Test Translation Error: 0.551159, Rotation Error: 5.867330
+2024-11-06 00:11:16,671 - Model - INFO - Save model...
+2024-11-06 00:11:16,671 - Model - INFO - Saving at log/offset/2024-11-05_23-48/checkpoints/best_model_e_9.pth
+2024-11-06 00:11:16,707 - Model - INFO - Epoch 10 (10/300):
+2024-11-06 00:13:07,586 - Model - INFO - Train Translation Error: 0.820459, Rotation Error: 5.822566
+2024-11-06 00:13:34,598 - Model - INFO - Test Translation Error: 0.617752, Rotation Error: 5.842812
+2024-11-06 00:13:34,598 - Model - INFO - Best Test Translation Error: 0.575229, Rotation Error: 5.833234
+2024-11-06 00:13:34,598 - Model - INFO - Epoch 11 (11/300):
+2024-11-06 00:15:29,019 - Model - INFO - Train Translation Error: 0.818812, Rotation Error: 5.839358
+2024-11-06 00:15:55,296 - Model - INFO - Test Translation Error: 0.727555, Rotation Error: 5.837421
+2024-11-06 00:15:55,296 - Model - INFO - Best Test Translation Error: 0.575229, Rotation Error: 5.833234
+2024-11-06 00:15:55,296 - Model - INFO - Epoch 12 (12/300):
+2024-11-06 00:17:46,997 - Model - INFO - Train Translation Error: 0.782199, Rotation Error: 5.836109
+2024-11-06 00:18:13,669 - Model - INFO - Test Translation Error: 0.969952, Rotation Error: 5.840587
+2024-11-06 00:18:13,669 - Model - INFO - Best Test Translation Error: 0.575229, Rotation Error: 5.833234
+2024-11-06 00:18:13,670 - Model - INFO - Epoch 13 (13/300):
+2024-11-06 00:20:08,576 - Model - INFO - Train Translation Error: 0.782320, Rotation Error: 5.826242
+2024-11-06 00:20:34,724 - Model - INFO - Test Translation Error: 0.561685, Rotation Error: 5.793356
+2024-11-06 00:20:34,724 - Model - INFO - Best Test Translation Error: 0.575229, Rotation Error: 5.833234
+2024-11-06 00:20:34,724 - Model - INFO - Save model...
+2024-11-06 00:20:34,724 - Model - INFO - Saving at log/offset/2024-11-05_23-48/checkpoints/best_model_e_13.pth
+2024-11-06 00:20:34,761 - Model - INFO - Epoch 14 (14/300):
+2024-11-06 00:22:28,106 - Model - INFO - Train Translation Error: 0.769404, Rotation Error: 5.822171
+2024-11-06 00:22:54,582 - Model - INFO - Test Translation Error: 0.482525, Rotation Error: 5.830988
+2024-11-06 00:22:54,582 - Model - INFO - Best Test Translation Error: 0.561685, Rotation Error: 5.793356
+2024-11-06 00:22:54,582 - Model - INFO - Save model...
+2024-11-06 00:22:54,582 - Model - INFO - Saving at log/offset/2024-11-05_23-48/checkpoints/best_model_e_14.pth
+2024-11-06 00:22:54,618 - Model - INFO - Epoch 15 (15/300):
+2024-11-06 00:24:46,434 - Model - INFO - Train Translation Error: 0.755766, Rotation Error: 5.815843
+2024-11-06 00:25:13,344 - Model - INFO - Test Translation Error: 0.538370, Rotation Error: 5.824282
+2024-11-06 00:25:13,344 - Model - INFO - Best Test Translation Error: 0.482525, Rotation Error: 5.830988
+2024-11-06 00:25:13,344 - Model - INFO - Epoch 16 (16/300):
+2024-11-06 00:27:06,117 - Model - INFO - Train Translation Error: 0.742045, Rotation Error: 5.831505
+2024-11-06 00:27:32,348 - Model - INFO - Test Translation Error: 0.618510, Rotation Error: 5.817202
+2024-11-06 00:27:32,349 - Model - INFO - Best Test Translation Error: 0.482525, Rotation Error: 5.830988
+2024-11-06 00:27:32,349 - Model - INFO - Epoch 17 (17/300):
+2024-11-06 00:29:27,058 - Model - INFO - Train Translation Error: 0.744201, Rotation Error: 5.811831
+2024-11-06 00:29:53,621 - Model - INFO - Test Translation Error: 0.544504, Rotation Error: 5.843470
+2024-11-06 00:29:53,622 - Model - INFO - Best Test Translation Error: 0.482525, Rotation Error: 5.830988
+2024-11-06 00:29:53,622 - Model - INFO - Epoch 18 (18/300):
+2024-11-06 00:31:45,455 - Model - INFO - Train Translation Error: 0.741168, Rotation Error: 5.829184
+2024-11-06 00:32:12,090 - Model - INFO - Test Translation Error: 0.866209, Rotation Error: 5.907921
+2024-11-06 00:32:12,090 - Model - INFO - Best Test Translation Error: 0.482525, Rotation Error: 5.830988
+2024-11-06 00:32:12,090 - Model - INFO - Epoch 19 (19/300):
+2024-11-06 00:34:04,964 - Model - INFO - Train Translation Error: 0.744424, Rotation Error: 5.834615
+2024-11-06 00:34:31,543 - Model - INFO - Test Translation Error: 0.485131, Rotation Error: 5.830820
+2024-11-06 00:34:31,543 - Model - INFO - Best Test Translation Error: 0.482525, Rotation Error: 5.830988
+2024-11-06 00:34:31,544 - Model - INFO - Epoch 20 (20/300):
+2024-11-06 00:36:23,489 - Model - INFO - Train Translation Error: 0.701826, Rotation Error: 5.793738
+2024-11-06 00:36:49,682 - Model - INFO - Test Translation Error: 0.794529, Rotation Error: 5.827679
+2024-11-06 00:36:49,682 - Model - INFO - Best Test Translation Error: 0.482525, Rotation Error: 5.830988
+2024-11-06 00:36:49,682 - Model - INFO - Epoch 21 (21/300):
+2024-11-06 00:38:43,873 - Model - INFO - Train Translation Error: 0.690446, Rotation Error: 5.815690
+2024-11-06 00:39:10,082 - Model - INFO - Test Translation Error: 0.542395, Rotation Error: 5.821984
+2024-11-06 00:39:10,082 - Model - INFO - Best Test Translation Error: 0.482525, Rotation Error: 5.830988
+2024-11-06 00:39:10,082 - Model - INFO - Epoch 22 (22/300):
+2024-11-06 00:41:03,117 - Model - INFO - Train Translation Error: 0.689737, Rotation Error: 5.816809
+2024-11-06 00:41:30,060 - Model - INFO - Test Translation Error: 0.446440, Rotation Error: 5.792945
+2024-11-06 00:41:30,060 - Model - INFO - Best Test Translation Error: 0.482525, Rotation Error: 5.830988
+2024-11-06 00:41:30,060 - Model - INFO - Save model...
+2024-11-06 00:41:30,060 - Model - INFO - Saving at log/offset/2024-11-05_23-48/checkpoints/best_model_e_22.pth
+2024-11-06 00:41:30,096 - Model - INFO - Epoch 23 (23/300):
+2024-11-06 00:43:21,719 - Model - INFO - Train Translation Error: 0.676055, Rotation Error: 5.817480
+2024-11-06 00:43:48,151 - Model - INFO - Test Translation Error: 0.407510, Rotation Error: 5.816801
+2024-11-06 00:43:48,151 - Model - INFO - Best Test Translation Error: 0.446440, Rotation Error: 5.792945
+2024-11-06 00:43:48,152 - Model - INFO - Save model...
+2024-11-06 00:43:48,152 - Model - INFO - Saving at log/offset/2024-11-05_23-48/checkpoints/best_model_e_23.pth
+2024-11-06 00:43:48,188 - Model - INFO - Epoch 24 (24/300):
+2024-11-06 00:45:41,015 - Model - INFO - Train Translation Error: 0.680109, Rotation Error: 5.814351
+2024-11-06 00:46:07,160 - Model - INFO - Test Translation Error: 0.726730, Rotation Error: 5.816074
+2024-11-06 00:46:07,160 - Model - INFO - Best Test Translation Error: 0.407510, Rotation Error: 5.816801
+2024-11-06 00:46:07,160 - Model - INFO - Epoch 25 (25/300):
+2024-11-06 00:48:01,303 - Model - INFO - Train Translation Error: 0.678551, Rotation Error: 5.792788
+2024-11-06 00:48:28,383 - Model - INFO - Test Translation Error: 0.465754, Rotation Error: 5.820042
+2024-11-06 00:48:28,384 - Model - INFO - Best Test Translation Error: 0.407510, Rotation Error: 5.816801
+2024-11-06 00:48:28,384 - Model - INFO - Epoch 26 (26/300):
+2024-11-06 00:50:22,748 - Model - INFO - Train Translation Error: 0.678121, Rotation Error: 5.786612
+2024-11-06 00:50:49,328 - Model - INFO - Test Translation Error: 0.490732, Rotation Error: 5.797788
+2024-11-06 00:50:49,328 - Model - INFO - Best Test Translation Error: 0.407510, Rotation Error: 5.816801
+2024-11-06 00:50:49,328 - Model - INFO - Epoch 27 (27/300):
+2024-11-06 00:52:43,917 - Model - INFO - Train Translation Error: 0.672755, Rotation Error: 5.786187
+2024-11-06 00:53:10,672 - Model - INFO - Test Translation Error: 0.566864, Rotation Error: 5.844697
+2024-11-06 00:53:10,673 - Model - INFO - Best Test Translation Error: 0.407510, Rotation Error: 5.816801
+2024-11-06 00:53:10,673 - Model - INFO - Epoch 28 (28/300):
+2024-11-06 00:55:04,062 - Model - INFO - Train Translation Error: 0.676953, Rotation Error: 5.757225
+2024-11-06 00:55:30,450 - Model - INFO - Test Translation Error: 0.486180, Rotation Error: 5.834190
+2024-11-06 00:55:30,450 - Model - INFO - Best Test Translation Error: 0.407510, Rotation Error: 5.816801
+2024-11-06 00:55:30,450 - Model - INFO - Epoch 29 (29/300):
+2024-11-06 00:57:21,511 - Model - INFO - Train Translation Error: 0.672382, Rotation Error: 5.802255
+2024-11-06 00:57:48,336 - Model - INFO - Test Translation Error: 0.456016, Rotation Error: 5.825893
+2024-11-06 00:57:48,336 - Model - INFO - Best Test Translation Error: 0.407510, Rotation Error: 5.816801
+2024-11-06 00:57:48,336 - Model - INFO - Epoch 30 (30/300):
+2024-11-06 00:59:41,805 - Model - INFO - Train Translation Error: 0.653369, Rotation Error: 5.770327
+2024-11-06 01:00:08,732 - Model - INFO - Test Translation Error: 0.636778, Rotation Error: 5.794001
+2024-11-06 01:00:08,732 - Model - INFO - Best Test Translation Error: 0.407510, Rotation Error: 5.816801
+2024-11-06 01:00:08,733 - Model - INFO - Epoch 31 (31/300):
+2024-11-06 01:02:02,803 - Model - INFO - Train Translation Error: 0.668577, Rotation Error: 5.774707
+2024-11-06 01:02:29,343 - Model - INFO - Test Translation Error: 0.718969, Rotation Error: 5.781855
+2024-11-06 01:02:29,343 - Model - INFO - Best Test Translation Error: 0.407510, Rotation Error: 5.816801
+2024-11-06 01:02:29,343 - Model - INFO - Epoch 32 (32/300):
+2024-11-06 01:04:20,329 - Model - INFO - Train Translation Error: 0.651198, Rotation Error: 5.770926
+2024-11-06 01:04:47,257 - Model - INFO - Test Translation Error: 0.710000, Rotation Error: 5.789272
+2024-11-06 01:04:47,257 - Model - INFO - Best Test Translation Error: 0.407510, Rotation Error: 5.816801
+2024-11-06 01:04:47,258 - Model - INFO - Epoch 33 (33/300):
+2024-11-06 01:06:38,032 - Model - INFO - Train Translation Error: 0.646798, Rotation Error: 5.736827
+2024-11-06 01:07:05,026 - Model - INFO - Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:07:05,027 - Model - INFO - Best Test Translation Error: 0.407510, Rotation Error: 5.816801
+2024-11-06 01:07:05,027 - Model - INFO - Save model...
+2024-11-06 01:07:05,027 - Model - INFO - Saving at log/offset/2024-11-05_23-48/checkpoints/best_model_e_33.pth
+2024-11-06 01:07:05,066 - Model - INFO - Epoch 34 (34/300):
+2024-11-06 01:08:58,966 - Model - INFO - Train Translation Error: 0.648219, Rotation Error: 5.745476
+2024-11-06 01:09:25,698 - Model - INFO - Test Translation Error: 0.758790, Rotation Error: 5.864667
+2024-11-06 01:09:25,698 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:09:25,698 - Model - INFO - Epoch 35 (35/300):
+2024-11-06 01:11:19,438 - Model - INFO - Train Translation Error: 0.637106, Rotation Error: 5.758174
+2024-11-06 01:11:45,741 - Model - INFO - Test Translation Error: 0.426155, Rotation Error: 5.844727
+2024-11-06 01:11:45,741 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:11:45,741 - Model - INFO - Epoch 36 (36/300):
+2024-11-06 01:13:40,349 - Model - INFO - Train Translation Error: 0.652760, Rotation Error: 5.735730
+2024-11-06 01:14:07,070 - Model - INFO - Test Translation Error: 0.480710, Rotation Error: 5.811846
+2024-11-06 01:14:07,070 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:14:07,071 - Model - INFO - Epoch 37 (37/300):
+2024-11-06 01:16:00,484 - Model - INFO - Train Translation Error: 0.659212, Rotation Error: 5.706673
+2024-11-06 01:16:27,114 - Model - INFO - Test Translation Error: 0.674853, Rotation Error: 5.803282
+2024-11-06 01:16:27,114 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:16:27,115 - Model - INFO - Epoch 38 (38/300):
+2024-11-06 01:18:18,219 - Model - INFO - Train Translation Error: 0.641967, Rotation Error: 5.722014
+2024-11-06 01:18:44,712 - Model - INFO - Test Translation Error: 0.418911, Rotation Error: 5.873604
+2024-11-06 01:18:44,712 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:18:44,712 - Model - INFO - Epoch 39 (39/300):
+2024-11-06 01:20:38,797 - Model - INFO - Train Translation Error: 0.641349, Rotation Error: 5.712007
+2024-11-06 01:21:05,366 - Model - INFO - Test Translation Error: 0.493948, Rotation Error: 5.890484
+2024-11-06 01:21:05,366 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:21:05,366 - Model - INFO - Epoch 40 (40/300):
+2024-11-06 01:22:58,538 - Model - INFO - Train Translation Error: 0.638796, Rotation Error: 5.665228
+2024-11-06 01:23:25,615 - Model - INFO - Test Translation Error: 0.544723, Rotation Error: 5.900937
+2024-11-06 01:23:25,615 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:23:25,616 - Model - INFO - Epoch 41 (41/300):
+2024-11-06 01:25:20,341 - Model - INFO - Train Translation Error: 0.639134, Rotation Error: 5.609225
+2024-11-06 01:25:46,526 - Model - INFO - Test Translation Error: 0.595575, Rotation Error: 5.865022
+2024-11-06 01:25:46,526 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:25:46,526 - Model - INFO - Epoch 42 (42/300):
+2024-11-06 01:27:39,279 - Model - INFO - Train Translation Error: 0.628307, Rotation Error: 5.594686
+2024-11-06 01:28:05,695 - Model - INFO - Test Translation Error: 0.592989, Rotation Error: 5.901537
+2024-11-06 01:28:05,695 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:28:05,696 - Model - INFO - Epoch 43 (43/300):
+2024-11-06 01:29:58,979 - Model - INFO - Train Translation Error: 0.630315, Rotation Error: 5.560928
+2024-11-06 01:30:25,963 - Model - INFO - Test Translation Error: 0.447864, Rotation Error: 5.893558
+2024-11-06 01:30:25,963 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:30:25,963 - Model - INFO - Epoch 44 (44/300):
+2024-11-06 01:32:20,683 - Model - INFO - Train Translation Error: 0.640933, Rotation Error: 5.534559
+2024-11-06 01:32:47,464 - Model - INFO - Test Translation Error: 0.458863, Rotation Error: 6.033336
+2024-11-06 01:32:47,464 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:32:47,464 - Model - INFO - Epoch 45 (45/300):
+2024-11-06 01:34:42,181 - Model - INFO - Train Translation Error: 0.636324, Rotation Error: 5.511518
+2024-11-06 01:35:08,819 - Model - INFO - Test Translation Error: 0.373372, Rotation Error: 6.073528
+2024-11-06 01:35:08,819 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:35:08,819 - Model - INFO - Epoch 46 (46/300):
+2024-11-06 01:37:03,205 - Model - INFO - Train Translation Error: 0.629461, Rotation Error: 5.437009
+2024-11-06 01:37:29,480 - Model - INFO - Test Translation Error: 0.392199, Rotation Error: 5.920741
+2024-11-06 01:37:29,480 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:37:29,481 - Model - INFO - Epoch 47 (47/300):
+2024-11-06 01:39:20,993 - Model - INFO - Train Translation Error: 0.632690, Rotation Error: 5.418508
+2024-11-06 01:39:47,564 - Model - INFO - Test Translation Error: 0.607433, Rotation Error: 6.060550
+2024-11-06 01:39:47,564 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:39:47,564 - Model - INFO - Epoch 48 (48/300):
+2024-11-06 01:41:38,702 - Model - INFO - Train Translation Error: 0.636081, Rotation Error: 5.373094
+2024-11-06 01:42:05,453 - Model - INFO - Test Translation Error: 0.890732, Rotation Error: 6.086127
+2024-11-06 01:42:05,453 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:42:05,454 - Model - INFO - Epoch 49 (49/300):
+2024-11-06 01:43:58,143 - Model - INFO - Train Translation Error: 0.632718, Rotation Error: 5.319363
+2024-11-06 01:44:24,515 - Model - INFO - Test Translation Error: 0.520492, Rotation Error: 6.083158
+2024-11-06 01:44:24,515 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:44:24,516 - Model - INFO - Epoch 50 (50/300):
+2024-11-06 01:46:15,883 - Model - INFO - Train Translation Error: 0.628418, Rotation Error: 5.333174
+2024-11-06 01:46:42,626 - Model - INFO - Test Translation Error: 0.468948, Rotation Error: 5.968775
+2024-11-06 01:46:42,626 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:46:42,626 - Model - INFO - Epoch 51 (51/300):
+2024-11-06 01:48:35,424 - Model - INFO - Train Translation Error: 0.634335, Rotation Error: 5.257152
+2024-11-06 01:49:02,122 - Model - INFO - Test Translation Error: 0.596373, Rotation Error: 6.052144
+2024-11-06 01:49:02,122 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:49:02,122 - Model - INFO - Epoch 52 (52/300):
+2024-11-06 01:50:55,195 - Model - INFO - Train Translation Error: 0.642449, Rotation Error: 5.211760
+2024-11-06 01:51:21,716 - Model - INFO - Test Translation Error: 0.408903, Rotation Error: 6.106677
+2024-11-06 01:51:21,716 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:51:21,716 - Model - INFO - Epoch 53 (53/300):
+2024-11-06 01:53:16,055 - Model - INFO - Train Translation Error: 0.645305, Rotation Error: 5.164510
+2024-11-06 01:53:42,201 - Model - INFO - Test Translation Error: 0.360419, Rotation Error: 6.095713
+2024-11-06 01:53:42,202 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:53:42,202 - Model - INFO - Epoch 54 (54/300):
+2024-11-06 01:55:34,456 - Model - INFO - Train Translation Error: 0.632672, Rotation Error: 5.104225
+2024-11-06 01:56:00,768 - Model - INFO - Test Translation Error: 0.585187, Rotation Error: 6.212912
+2024-11-06 01:56:00,768 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:56:00,768 - Model - INFO - Epoch 55 (55/300):
+2024-11-06 01:57:52,837 - Model - INFO - Train Translation Error: 0.635855, Rotation Error: 5.052378
+2024-11-06 01:58:19,803 - Model - INFO - Test Translation Error: 0.417894, Rotation Error: 6.354135
+2024-11-06 01:58:19,803 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 01:58:19,803 - Model - INFO - Epoch 56 (56/300):
+2024-11-06 02:00:13,573 - Model - INFO - Train Translation Error: 0.638871, Rotation Error: 4.999054
+2024-11-06 02:00:39,935 - Model - INFO - Test Translation Error: 0.436219, Rotation Error: 6.291608
+2024-11-06 02:00:39,935 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:00:39,936 - Model - INFO - Epoch 57 (57/300):
+2024-11-06 02:02:31,370 - Model - INFO - Train Translation Error: 0.641463, Rotation Error: 4.966406
+2024-11-06 02:02:57,976 - Model - INFO - Test Translation Error: 0.397041, Rotation Error: 6.238441
+2024-11-06 02:02:57,976 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:02:57,976 - Model - INFO - Epoch 58 (58/300):
+2024-11-06 02:04:50,269 - Model - INFO - Train Translation Error: 0.639450, Rotation Error: 4.886410
+2024-11-06 02:05:16,793 - Model - INFO - Test Translation Error: 0.390385, Rotation Error: 6.610265
+2024-11-06 02:05:16,793 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:05:16,794 - Model - INFO - Epoch 59 (59/300):
+2024-11-06 02:07:11,370 - Model - INFO - Train Translation Error: 0.645830, Rotation Error: 4.830392
+2024-11-06 02:07:38,368 - Model - INFO - Test Translation Error: 0.406647, Rotation Error: 6.305156
+2024-11-06 02:07:38,368 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:07:38,369 - Model - INFO - Epoch 60 (60/300):
+2024-11-06 02:09:30,296 - Model - INFO - Train Translation Error: 0.633299, Rotation Error: 4.665503
+2024-11-06 02:09:56,959 - Model - INFO - Test Translation Error: 0.494850, Rotation Error: 6.485499
+2024-11-06 02:09:56,959 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:09:56,959 - Model - INFO - Epoch 61 (61/300):
+2024-11-06 02:11:51,483 - Model - INFO - Train Translation Error: 0.629565, Rotation Error: 4.578948
+2024-11-06 02:12:17,995 - Model - INFO - Test Translation Error: 0.514453, Rotation Error: 6.753067
+2024-11-06 02:12:17,995 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:12:17,995 - Model - INFO - Epoch 62 (62/300):
+2024-11-06 02:14:11,601 - Model - INFO - Train Translation Error: 0.629846, Rotation Error: 4.517705
+2024-11-06 02:14:38,572 - Model - INFO - Test Translation Error: 0.433519, Rotation Error: 6.442861
+2024-11-06 02:14:38,572 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:14:38,573 - Model - INFO - Epoch 63 (63/300):
+2024-11-06 02:16:32,185 - Model - INFO - Train Translation Error: 0.638927, Rotation Error: 4.492668
+2024-11-06 02:16:58,386 - Model - INFO - Test Translation Error: 0.402952, Rotation Error: 6.543985
+2024-11-06 02:16:58,386 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:16:58,386 - Model - INFO - Epoch 64 (64/300):
+2024-11-06 02:18:51,807 - Model - INFO - Train Translation Error: 0.632416, Rotation Error: 4.480796
+2024-11-06 02:19:18,625 - Model - INFO - Test Translation Error: 0.389986, Rotation Error: 6.556469
+2024-11-06 02:19:18,625 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:19:18,626 - Model - INFO - Epoch 65 (65/300):
+2024-11-06 02:21:11,070 - Model - INFO - Train Translation Error: 0.642085, Rotation Error: 4.339982
+2024-11-06 02:21:37,783 - Model - INFO - Test Translation Error: 0.404856, Rotation Error: 6.539271
+2024-11-06 02:21:37,783 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:21:37,783 - Model - INFO - Epoch 66 (66/300):
+2024-11-06 02:23:29,903 - Model - INFO - Train Translation Error: 0.624073, Rotation Error: 4.353599
+2024-11-06 02:23:56,627 - Model - INFO - Test Translation Error: 0.457872, Rotation Error: 6.477151
+2024-11-06 02:23:56,627 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:23:56,627 - Model - INFO - Epoch 67 (67/300):
+2024-11-06 02:25:51,231 - Model - INFO - Train Translation Error: 0.630323, Rotation Error: 4.247782
+2024-11-06 02:26:18,263 - Model - INFO - Test Translation Error: 0.425997, Rotation Error: 6.663193
+2024-11-06 02:26:18,263 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:26:18,264 - Model - INFO - Epoch 68 (68/300):
+2024-11-06 02:28:10,623 - Model - INFO - Train Translation Error: 0.625481, Rotation Error: 4.259213
+2024-11-06 02:28:37,177 - Model - INFO - Test Translation Error: 0.366341, Rotation Error: 6.487642
+2024-11-06 02:28:37,178 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:28:37,178 - Model - INFO - Epoch 69 (69/300):
+2024-11-06 02:30:31,354 - Model - INFO - Train Translation Error: 0.626279, Rotation Error: 4.082949
+2024-11-06 02:30:58,809 - Model - INFO - Test Translation Error: 0.395781, Rotation Error: 6.674529
+2024-11-06 02:30:58,809 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:30:58,810 - Model - INFO - Epoch 70 (70/300):
+2024-11-06 02:32:50,071 - Model - INFO - Train Translation Error: 0.635099, Rotation Error: 4.282851
+2024-11-06 02:33:16,835 - Model - INFO - Test Translation Error: 0.436746, Rotation Error: 6.644263
+2024-11-06 02:33:16,835 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:33:16,835 - Model - INFO - Epoch 71 (71/300):
+2024-11-06 02:35:08,046 - Model - INFO - Train Translation Error: 0.622997, Rotation Error: 4.090759
+2024-11-06 02:35:34,402 - Model - INFO - Test Translation Error: 0.442346, Rotation Error: 6.687971
+2024-11-06 02:35:34,402 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:35:34,402 - Model - INFO - Epoch 72 (72/300):
+2024-11-06 02:37:28,719 - Model - INFO - Train Translation Error: 0.634506, Rotation Error: 4.110434
+2024-11-06 02:37:55,744 - Model - INFO - Test Translation Error: 0.393260, Rotation Error: 6.728309
+2024-11-06 02:37:55,744 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:37:55,745 - Model - INFO - Epoch 73 (73/300):
+2024-11-06 02:39:48,498 - Model - INFO - Train Translation Error: 0.636520, Rotation Error: 3.983843
+2024-11-06 02:40:15,698 - Model - INFO - Test Translation Error: 0.396676, Rotation Error: 6.620570
+2024-11-06 02:40:15,698 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:40:15,699 - Model - INFO - Epoch 74 (74/300):
+2024-11-06 02:42:09,602 - Model - INFO - Train Translation Error: 0.631059, Rotation Error: 3.978753
+2024-11-06 02:42:36,364 - Model - INFO - Test Translation Error: 0.535507, Rotation Error: 6.571243
+2024-11-06 02:42:36,364 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:42:36,364 - Model - INFO - Epoch 75 (75/300):
+2024-11-06 02:44:30,450 - Model - INFO - Train Translation Error: 0.629795, Rotation Error: 3.956074
+2024-11-06 02:44:57,126 - Model - INFO - Test Translation Error: 0.413756, Rotation Error: 6.840511
+2024-11-06 02:44:57,126 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:44:57,127 - Model - INFO - Epoch 76 (76/300):
+2024-11-06 02:46:49,918 - Model - INFO - Train Translation Error: 0.628624, Rotation Error: 3.858254
+2024-11-06 02:47:16,424 - Model - INFO - Test Translation Error: 0.371151, Rotation Error: 6.828329
+2024-11-06 02:47:16,424 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:47:16,424 - Model - INFO - Epoch 77 (77/300):
+2024-11-06 02:49:09,504 - Model - INFO - Train Translation Error: 0.633626, Rotation Error: 3.841139
+2024-11-06 02:49:35,809 - Model - INFO - Test Translation Error: 0.444988, Rotation Error: 6.709206
+2024-11-06 02:49:35,809 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:49:35,809 - Model - INFO - Epoch 78 (78/300):
+2024-11-06 02:51:29,032 - Model - INFO - Train Translation Error: 0.628317, Rotation Error: 3.867408
+2024-11-06 02:51:55,300 - Model - INFO - Test Translation Error: 0.406827, Rotation Error: 6.698868
+2024-11-06 02:51:55,300 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:51:55,300 - Model - INFO - Epoch 79 (79/300):
+2024-11-06 02:53:48,202 - Model - INFO - Train Translation Error: 0.628054, Rotation Error: 3.860402
+2024-11-06 02:54:14,721 - Model - INFO - Test Translation Error: 0.414281, Rotation Error: 6.765085
+2024-11-06 02:54:14,722 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:54:14,722 - Model - INFO - Epoch 80 (80/300):
+2024-11-06 02:56:09,014 - Model - INFO - Train Translation Error: 0.623767, Rotation Error: 3.620786
+2024-11-06 02:56:36,470 - Model - INFO - Test Translation Error: 0.369500, Rotation Error: 6.755699
+2024-11-06 02:56:36,470 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:56:36,471 - Model - INFO - Epoch 81 (81/300):
+2024-11-06 02:58:30,736 - Model - INFO - Train Translation Error: 0.625641, Rotation Error: 3.541392
+2024-11-06 02:58:57,757 - Model - INFO - Test Translation Error: 0.382743, Rotation Error: 6.658877
+2024-11-06 02:58:57,757 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 02:58:57,757 - Model - INFO - Epoch 82 (82/300):
+2024-11-06 03:00:52,227 - Model - INFO - Train Translation Error: 0.621477, Rotation Error: 3.498251
+2024-11-06 03:01:19,288 - Model - INFO - Test Translation Error: 0.369699, Rotation Error: 6.620228
+2024-11-06 03:01:19,288 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:01:19,288 - Model - INFO - Epoch 83 (83/300):
+2024-11-06 03:03:14,068 - Model - INFO - Train Translation Error: 0.626151, Rotation Error: 3.543953
+2024-11-06 03:03:40,668 - Model - INFO - Test Translation Error: 0.392910, Rotation Error: 6.985784
+2024-11-06 03:03:40,668 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:03:40,669 - Model - INFO - Epoch 84 (84/300):
+2024-11-06 03:05:33,507 - Model - INFO - Train Translation Error: 0.618322, Rotation Error: 3.480245
+2024-11-06 03:06:00,355 - Model - INFO - Test Translation Error: 0.397229, Rotation Error: 6.986214
+2024-11-06 03:06:00,355 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:06:00,355 - Model - INFO - Epoch 85 (85/300):
+2024-11-06 03:07:53,857 - Model - INFO - Train Translation Error: 0.630265, Rotation Error: 3.494770
+2024-11-06 03:08:20,178 - Model - INFO - Test Translation Error: 0.363065, Rotation Error: 6.973699
+2024-11-06 03:08:20,179 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:08:20,179 - Model - INFO - Epoch 86 (86/300):
+2024-11-06 03:10:14,298 - Model - INFO - Train Translation Error: 0.630746, Rotation Error: 3.460092
+2024-11-06 03:10:40,587 - Model - INFO - Test Translation Error: 0.365042, Rotation Error: 6.914474
+2024-11-06 03:10:40,588 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:10:40,588 - Model - INFO - Epoch 87 (87/300):
+2024-11-06 03:12:33,797 - Model - INFO - Train Translation Error: 0.623784, Rotation Error: 3.400858
+2024-11-06 03:13:00,410 - Model - INFO - Test Translation Error: 0.367453, Rotation Error: 6.779808
+2024-11-06 03:13:00,410 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:13:00,411 - Model - INFO - Epoch 88 (88/300):
+2024-11-06 03:14:51,527 - Model - INFO - Train Translation Error: 0.622264, Rotation Error: 3.371881
+2024-11-06 03:15:18,183 - Model - INFO - Test Translation Error: 0.379595, Rotation Error: 6.714704
+2024-11-06 03:15:18,184 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:15:18,184 - Model - INFO - Epoch 89 (89/300):
+2024-11-06 03:17:09,519 - Model - INFO - Train Translation Error: 0.629703, Rotation Error: 3.369974
+2024-11-06 03:17:36,638 - Model - INFO - Test Translation Error: 0.404262, Rotation Error: 6.863453
+2024-11-06 03:17:36,638 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:17:36,639 - Model - INFO - Epoch 90 (90/300):
+2024-11-06 03:19:28,894 - Model - INFO - Train Translation Error: 0.621569, Rotation Error: 3.295480
+2024-11-06 03:19:55,225 - Model - INFO - Test Translation Error: 0.427122, Rotation Error: 6.831931
+2024-11-06 03:19:55,225 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:19:55,225 - Model - INFO - Epoch 91 (91/300):
+2024-11-06 03:21:46,273 - Model - INFO - Train Translation Error: 0.624110, Rotation Error: 3.351254
+2024-11-06 03:22:12,642 - Model - INFO - Test Translation Error: 0.441341, Rotation Error: 6.677251
+2024-11-06 03:22:12,642 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:22:12,643 - Model - INFO - Epoch 92 (92/300):
+2024-11-06 03:24:05,613 - Model - INFO - Train Translation Error: 0.615862, Rotation Error: 3.275916
+2024-11-06 03:24:32,284 - Model - INFO - Test Translation Error: 0.478683, Rotation Error: 6.776315
+2024-11-06 03:24:32,284 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:24:32,284 - Model - INFO - Epoch 93 (93/300):
+2024-11-06 03:26:25,447 - Model - INFO - Train Translation Error: 0.625505, Rotation Error: 3.203576
+2024-11-06 03:26:52,390 - Model - INFO - Test Translation Error: 0.341809, Rotation Error: 6.718804
+2024-11-06 03:26:52,390 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:26:52,390 - Model - INFO - Epoch 94 (94/300):
+2024-11-06 03:28:46,820 - Model - INFO - Train Translation Error: 0.615770, Rotation Error: 3.238892
+2024-11-06 03:29:13,174 - Model - INFO - Test Translation Error: 0.375092, Rotation Error: 6.719041
+2024-11-06 03:29:13,174 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:29:13,174 - Model - INFO - Epoch 95 (95/300):
+2024-11-06 03:31:07,211 - Model - INFO - Train Translation Error: 0.620888, Rotation Error: 3.266270
+2024-11-06 03:31:34,281 - Model - INFO - Test Translation Error: 0.353291, Rotation Error: 6.769704
+2024-11-06 03:31:34,281 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:31:34,281 - Model - INFO - Epoch 96 (96/300):
+2024-11-06 03:33:28,621 - Model - INFO - Train Translation Error: 0.616852, Rotation Error: 3.227875
+2024-11-06 03:33:55,573 - Model - INFO - Test Translation Error: 0.441600, Rotation Error: 6.624602
+2024-11-06 03:33:55,573 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:33:55,573 - Model - INFO - Epoch 97 (97/300):
+2024-11-06 03:35:48,826 - Model - INFO - Train Translation Error: 0.625164, Rotation Error: 3.230335
+2024-11-06 03:36:15,533 - Model - INFO - Test Translation Error: 0.391592, Rotation Error: 6.729916
+2024-11-06 03:36:15,533 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:36:15,534 - Model - INFO - Epoch 98 (98/300):
+2024-11-06 03:38:09,151 - Model - INFO - Train Translation Error: 0.620624, Rotation Error: 3.173609
+2024-11-06 03:38:35,704 - Model - INFO - Test Translation Error: 0.345612, Rotation Error: 6.750895
+2024-11-06 03:38:35,704 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:38:35,704 - Model - INFO - Epoch 99 (99/300):
+2024-11-06 03:40:29,713 - Model - INFO - Train Translation Error: 0.622951, Rotation Error: 3.240653
+2024-11-06 03:40:56,856 - Model - INFO - Test Translation Error: 0.393227, Rotation Error: 6.703503
+2024-11-06 03:40:56,856 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:40:56,857 - Model - INFO - Epoch 100 (100/300):
+2024-11-06 03:42:50,557 - Model - INFO - Train Translation Error: 0.620146, Rotation Error: 3.120416
+2024-11-06 03:43:17,011 - Model - INFO - Test Translation Error: 0.348184, Rotation Error: 6.547469
+2024-11-06 03:43:17,011 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:43:17,011 - Model - INFO - Epoch 101 (101/300):
+2024-11-06 03:45:11,720 - Model - INFO - Train Translation Error: 0.619471, Rotation Error: 2.991511
+2024-11-06 03:45:38,690 - Model - INFO - Test Translation Error: 0.389702, Rotation Error: 6.716254
+2024-11-06 03:45:38,690 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:45:38,691 - Model - INFO - Epoch 102 (102/300):
+2024-11-06 03:47:30,931 - Model - INFO - Train Translation Error: 0.623729, Rotation Error: 3.078872
+2024-11-06 03:47:57,459 - Model - INFO - Test Translation Error: 0.369643, Rotation Error: 6.729418
+2024-11-06 03:47:57,459 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:47:57,459 - Model - INFO - Epoch 103 (103/300):
+2024-11-06 03:49:50,812 - Model - INFO - Train Translation Error: 0.615650, Rotation Error: 3.045759
+2024-11-06 03:50:17,658 - Model - INFO - Test Translation Error: 0.386495, Rotation Error: 6.731510
+2024-11-06 03:50:17,658 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:50:17,658 - Model - INFO - Epoch 104 (104/300):
+2024-11-06 03:52:10,332 - Model - INFO - Train Translation Error: 0.614936, Rotation Error: 3.069546
+2024-11-06 03:52:37,400 - Model - INFO - Test Translation Error: 0.433604, Rotation Error: 6.735914
+2024-11-06 03:52:37,400 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:52:37,401 - Model - INFO - Epoch 105 (105/300):
+2024-11-06 03:54:32,092 - Model - INFO - Train Translation Error: 0.613536, Rotation Error: 3.095878
+2024-11-06 03:54:58,716 - Model - INFO - Test Translation Error: 0.357037, Rotation Error: 6.696616
+2024-11-06 03:54:58,716 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:54:58,716 - Model - INFO - Epoch 106 (106/300):
+2024-11-06 03:56:53,390 - Model - INFO - Train Translation Error: 0.608662, Rotation Error: 3.021093
+2024-11-06 03:57:19,792 - Model - INFO - Test Translation Error: 0.396001, Rotation Error: 6.910486
+2024-11-06 03:57:19,792 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:57:19,792 - Model - INFO - Epoch 107 (107/300):
+2024-11-06 03:59:12,872 - Model - INFO - Train Translation Error: 0.614129, Rotation Error: 2.960487
+2024-11-06 03:59:39,111 - Model - INFO - Test Translation Error: 0.336303, Rotation Error: 6.748395
+2024-11-06 03:59:39,111 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 03:59:39,111 - Model - INFO - Epoch 108 (108/300):
+2024-11-06 04:01:33,354 - Model - INFO - Train Translation Error: 0.618263, Rotation Error: 2.964513
+2024-11-06 04:01:59,520 - Model - INFO - Test Translation Error: 0.342838, Rotation Error: 6.752927
+2024-11-06 04:01:59,521 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:01:59,521 - Model - INFO - Epoch 109 (109/300):
+2024-11-06 04:03:50,981 - Model - INFO - Train Translation Error: 0.619883, Rotation Error: 2.926173
+2024-11-06 04:04:18,117 - Model - INFO - Test Translation Error: 0.391845, Rotation Error: 6.500294
+2024-11-06 04:04:18,118 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:04:18,118 - Model - INFO - Epoch 110 (110/300):
+2024-11-06 04:06:12,560 - Model - INFO - Train Translation Error: 0.611525, Rotation Error: 2.901020
+2024-11-06 04:06:39,512 - Model - INFO - Test Translation Error: 0.339003, Rotation Error: 6.669278
+2024-11-06 04:06:39,512 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:06:39,512 - Model - INFO - Epoch 111 (111/300):
+2024-11-06 04:08:31,983 - Model - INFO - Train Translation Error: 0.614853, Rotation Error: 2.991609
+2024-11-06 04:08:58,223 - Model - INFO - Test Translation Error: 0.396154, Rotation Error: 6.683287
+2024-11-06 04:08:58,223 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:08:58,223 - Model - INFO - Epoch 112 (112/300):
+2024-11-06 04:10:49,433 - Model - INFO - Train Translation Error: 0.618892, Rotation Error: 2.917301
+2024-11-06 04:11:15,708 - Model - INFO - Test Translation Error: 0.381727, Rotation Error: 6.756759
+2024-11-06 04:11:15,708 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:11:15,708 - Model - INFO - Epoch 113 (113/300):
+2024-11-06 04:13:09,037 - Model - INFO - Train Translation Error: 0.611467, Rotation Error: 2.967672
+2024-11-06 04:13:36,014 - Model - INFO - Test Translation Error: 0.373787, Rotation Error: 6.775885
+2024-11-06 04:13:36,014 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:13:36,015 - Model - INFO - Epoch 114 (114/300):
+2024-11-06 04:15:28,947 - Model - INFO - Train Translation Error: 0.612477, Rotation Error: 2.927563
+2024-11-06 04:15:55,911 - Model - INFO - Test Translation Error: 0.404821, Rotation Error: 6.735676
+2024-11-06 04:15:55,912 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:15:55,912 - Model - INFO - Epoch 115 (115/300):
+2024-11-06 04:17:48,359 - Model - INFO - Train Translation Error: 0.604622, Rotation Error: 2.980771
+2024-11-06 04:18:14,928 - Model - INFO - Test Translation Error: 0.354384, Rotation Error: 6.728443
+2024-11-06 04:18:14,928 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:18:14,929 - Model - INFO - Epoch 116 (116/300):
+2024-11-06 04:20:06,520 - Model - INFO - Train Translation Error: 0.611028, Rotation Error: 2.977721
+2024-11-06 04:20:33,080 - Model - INFO - Test Translation Error: 0.349655, Rotation Error: 6.662988
+2024-11-06 04:20:33,080 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:20:33,080 - Model - INFO - Epoch 117 (117/300):
+2024-11-06 04:22:24,153 - Model - INFO - Train Translation Error: 0.613475, Rotation Error: 2.954488
+2024-11-06 04:22:50,338 - Model - INFO - Test Translation Error: 0.339879, Rotation Error: 6.730520
+2024-11-06 04:22:50,338 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:22:50,338 - Model - INFO - Epoch 118 (118/300):
+2024-11-06 04:24:41,831 - Model - INFO - Train Translation Error: 0.616592, Rotation Error: 2.936146
+2024-11-06 04:25:08,405 - Model - INFO - Test Translation Error: 0.358007, Rotation Error: 6.613973
+2024-11-06 04:25:08,406 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:25:08,406 - Model - INFO - Epoch 119 (119/300):
+2024-11-06 04:27:02,411 - Model - INFO - Train Translation Error: 0.599943, Rotation Error: 2.868686
+2024-11-06 04:27:29,223 - Model - INFO - Test Translation Error: 0.352345, Rotation Error: 6.630775
+2024-11-06 04:27:29,223 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:27:29,223 - Model - INFO - Epoch 120 (120/300):
+2024-11-06 04:29:21,916 - Model - INFO - Train Translation Error: 0.600885, Rotation Error: 2.836626
+2024-11-06 04:29:48,194 - Model - INFO - Test Translation Error: 0.335680, Rotation Error: 6.666940
+2024-11-06 04:29:48,194 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:29:48,194 - Model - INFO - Epoch 121 (121/300):
+2024-11-06 04:31:41,687 - Model - INFO - Train Translation Error: 0.609643, Rotation Error: 2.823201
+2024-11-06 04:32:08,761 - Model - INFO - Test Translation Error: 0.350932, Rotation Error: 6.647494
+2024-11-06 04:32:08,761 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:32:08,761 - Model - INFO - Epoch 122 (122/300):
+2024-11-06 04:34:02,938 - Model - INFO - Train Translation Error: 0.611858, Rotation Error: 2.749673
+2024-11-06 04:34:29,316 - Model - INFO - Test Translation Error: 0.342818, Rotation Error: 6.589774
+2024-11-06 04:34:29,316 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:34:29,316 - Model - INFO - Epoch 123 (123/300):
+2024-11-06 04:36:23,620 - Model - INFO - Train Translation Error: 0.603352, Rotation Error: 2.788545
+2024-11-06 04:36:50,530 - Model - INFO - Test Translation Error: 0.351382, Rotation Error: 6.644161
+2024-11-06 04:36:50,531 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:36:50,531 - Model - INFO - Epoch 124 (124/300):
+2024-11-06 04:38:43,654 - Model - INFO - Train Translation Error: 0.607926, Rotation Error: 2.852324
+2024-11-06 04:39:09,879 - Model - INFO - Test Translation Error: 0.342788, Rotation Error: 6.646188
+2024-11-06 04:39:09,879 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:39:09,879 - Model - INFO - Epoch 125 (125/300):
+2024-11-06 04:41:02,356 - Model - INFO - Train Translation Error: 0.614072, Rotation Error: 2.814999
+2024-11-06 04:41:29,045 - Model - INFO - Test Translation Error: 0.349700, Rotation Error: 6.508196
+2024-11-06 04:41:29,045 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:41:29,045 - Model - INFO - Epoch 126 (126/300):
+2024-11-06 04:43:21,520 - Model - INFO - Train Translation Error: 0.603242, Rotation Error: 2.818118
+2024-11-06 04:43:48,481 - Model - INFO - Test Translation Error: 0.377940, Rotation Error: 6.573486
+2024-11-06 04:43:48,481 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:43:48,481 - Model - INFO - Epoch 127 (127/300):
+2024-11-06 04:45:42,680 - Model - INFO - Train Translation Error: 0.611057, Rotation Error: 2.865033
+2024-11-06 04:46:09,627 - Model - INFO - Test Translation Error: 0.336969, Rotation Error: 6.727056
+2024-11-06 04:46:09,627 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:46:09,628 - Model - INFO - Epoch 128 (128/300):
+2024-11-06 04:48:02,248 - Model - INFO - Train Translation Error: 0.619947, Rotation Error: 2.760475
+2024-11-06 04:48:28,859 - Model - INFO - Test Translation Error: 0.362602, Rotation Error: 6.768441
+2024-11-06 04:48:28,859 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:48:28,859 - Model - INFO - Epoch 129 (129/300):
+2024-11-06 04:50:19,791 - Model - INFO - Train Translation Error: 0.602384, Rotation Error: 2.772811
+2024-11-06 04:50:46,486 - Model - INFO - Test Translation Error: 0.375030, Rotation Error: 6.553040
+2024-11-06 04:50:46,486 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:50:46,486 - Model - INFO - Epoch 130 (130/300):
+2024-11-06 04:52:37,797 - Model - INFO - Train Translation Error: 0.599156, Rotation Error: 2.752712
+2024-11-06 04:53:04,010 - Model - INFO - Test Translation Error: 0.344873, Rotation Error: 6.601994
+2024-11-06 04:53:04,010 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:53:04,010 - Model - INFO - Epoch 131 (131/300):
+2024-11-06 04:54:56,315 - Model - INFO - Train Translation Error: 0.614365, Rotation Error: 2.770247
+2024-11-06 04:55:23,255 - Model - INFO - Test Translation Error: 0.410584, Rotation Error: 6.645310
+2024-11-06 04:55:23,255 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:55:23,256 - Model - INFO - Epoch 132 (132/300):
+2024-11-06 04:57:14,580 - Model - INFO - Train Translation Error: 0.608412, Rotation Error: 2.713443
+2024-11-06 04:57:41,100 - Model - INFO - Test Translation Error: 0.345788, Rotation Error: 6.865925
+2024-11-06 04:57:41,100 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 04:57:41,101 - Model - INFO - Epoch 133 (133/300):
+2024-11-06 04:59:34,347 - Model - INFO - Train Translation Error: 0.614597, Rotation Error: 2.807782
+2024-11-06 05:00:00,711 - Model - INFO - Test Translation Error: 0.342734, Rotation Error: 6.639396
+2024-11-06 05:00:00,711 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:00:00,711 - Model - INFO - Epoch 134 (134/300):
+2024-11-06 05:01:53,774 - Model - INFO - Train Translation Error: 0.602495, Rotation Error: 2.737673
+2024-11-06 05:02:20,873 - Model - INFO - Test Translation Error: 0.356665, Rotation Error: 6.543628
+2024-11-06 05:02:20,873 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:02:20,874 - Model - INFO - Epoch 135 (135/300):
+2024-11-06 05:04:14,799 - Model - INFO - Train Translation Error: 0.604965, Rotation Error: 2.706815
+2024-11-06 05:04:41,402 - Model - INFO - Test Translation Error: 0.329772, Rotation Error: 6.529177
+2024-11-06 05:04:41,402 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:04:41,402 - Model - INFO - Epoch 136 (136/300):
+2024-11-06 05:06:34,790 - Model - INFO - Train Translation Error: 0.608779, Rotation Error: 2.818125
+2024-11-06 05:07:01,663 - Model - INFO - Test Translation Error: 0.393956, Rotation Error: 6.659112
+2024-11-06 05:07:01,663 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:07:01,664 - Model - INFO - Epoch 137 (137/300):
+2024-11-06 05:08:54,775 - Model - INFO - Train Translation Error: 0.605744, Rotation Error: 2.683118
+2024-11-06 05:09:21,804 - Model - INFO - Test Translation Error: 0.382807, Rotation Error: 6.704708
+2024-11-06 05:09:21,804 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:09:21,805 - Model - INFO - Epoch 138 (138/300):
+2024-11-06 05:11:14,458 - Model - INFO - Train Translation Error: 0.601744, Rotation Error: 2.708032
+2024-11-06 05:11:40,668 - Model - INFO - Test Translation Error: 0.414871, Rotation Error: 6.583551
+2024-11-06 05:11:40,669 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:11:40,669 - Model - INFO - Epoch 139 (139/300):
+2024-11-06 05:13:34,451 - Model - INFO - Train Translation Error: 0.608197, Rotation Error: 2.698335
+2024-11-06 05:14:01,023 - Model - INFO - Test Translation Error: 0.352030, Rotation Error: 6.531573
+2024-11-06 05:14:01,023 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:14:01,023 - Model - INFO - Epoch 140 (140/300):
+2024-11-06 05:15:52,482 - Model - INFO - Train Translation Error: 0.616129, Rotation Error: 2.712030
+2024-11-06 05:16:18,787 - Model - INFO - Test Translation Error: 0.369544, Rotation Error: 6.463255
+2024-11-06 05:16:18,787 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:16:18,787 - Model - INFO - Epoch 141 (141/300):
+2024-11-06 05:18:11,895 - Model - INFO - Train Translation Error: 0.606111, Rotation Error: 2.710065
+2024-11-06 05:18:38,144 - Model - INFO - Test Translation Error: 0.319330, Rotation Error: 6.569520
+2024-11-06 05:18:38,144 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:18:38,145 - Model - INFO - Epoch 142 (142/300):
+2024-11-06 05:20:30,005 - Model - INFO - Train Translation Error: 0.593433, Rotation Error: 2.673002
+2024-11-06 05:20:57,048 - Model - INFO - Test Translation Error: 0.355559, Rotation Error: 6.551101
+2024-11-06 05:20:57,048 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:20:57,048 - Model - INFO - Epoch 143 (143/300):
+2024-11-06 05:22:51,519 - Model - INFO - Train Translation Error: 0.614330, Rotation Error: 2.680243
+2024-11-06 05:23:18,014 - Model - INFO - Test Translation Error: 0.358986, Rotation Error: 6.667938
+2024-11-06 05:23:18,014 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:23:18,014 - Model - INFO - Epoch 144 (144/300):
+2024-11-06 05:25:10,561 - Model - INFO - Train Translation Error: 0.609934, Rotation Error: 2.647571
+2024-11-06 05:25:37,321 - Model - INFO - Test Translation Error: 0.336392, Rotation Error: 6.578074
+2024-11-06 05:25:37,321 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:25:37,322 - Model - INFO - Epoch 145 (145/300):
+2024-11-06 05:27:29,525 - Model - INFO - Train Translation Error: 0.605399, Rotation Error: 2.657258
+2024-11-06 05:27:55,774 - Model - INFO - Test Translation Error: 0.348431, Rotation Error: 6.520935
+2024-11-06 05:27:55,774 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:27:55,775 - Model - INFO - Epoch 146 (146/300):
+2024-11-06 05:29:48,520 - Model - INFO - Train Translation Error: 0.604188, Rotation Error: 2.704830
+2024-11-06 05:30:15,536 - Model - INFO - Test Translation Error: 0.369316, Rotation Error: 6.671461
+2024-11-06 05:30:15,536 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:30:15,536 - Model - INFO - Epoch 147 (147/300):
+2024-11-06 05:32:08,119 - Model - INFO - Train Translation Error: 0.607672, Rotation Error: 2.612176
+2024-11-06 05:32:35,014 - Model - INFO - Test Translation Error: 0.367065, Rotation Error: 6.528597
+2024-11-06 05:32:35,014 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:32:35,015 - Model - INFO - Epoch 148 (148/300):
+2024-11-06 05:34:29,137 - Model - INFO - Train Translation Error: 0.606446, Rotation Error: 2.613867
+2024-11-06 05:34:55,442 - Model - INFO - Test Translation Error: 0.368251, Rotation Error: 6.593589
+2024-11-06 05:34:55,442 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:34:55,442 - Model - INFO - Epoch 149 (149/300):
+2024-11-06 05:36:47,250 - Model - INFO - Train Translation Error: 0.599526, Rotation Error: 2.626560
+2024-11-06 05:37:13,978 - Model - INFO - Test Translation Error: 0.356312, Rotation Error: 6.656430
+2024-11-06 05:37:13,978 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:37:13,978 - Model - INFO - Epoch 150 (150/300):
+2024-11-06 05:39:05,962 - Model - INFO - Train Translation Error: 0.601544, Rotation Error: 2.621861
+2024-11-06 05:39:32,224 - Model - INFO - Test Translation Error: 0.316207, Rotation Error: 6.570454
+2024-11-06 05:39:32,224 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:39:32,224 - Model - INFO - Epoch 151 (151/300):
+2024-11-06 05:41:24,835 - Model - INFO - Train Translation Error: 0.603740, Rotation Error: 2.626843
+2024-11-06 05:41:50,991 - Model - INFO - Test Translation Error: 0.313432, Rotation Error: 6.581675
+2024-11-06 05:41:50,991 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:41:50,992 - Model - INFO - Epoch 152 (152/300):
+2024-11-06 05:43:42,076 - Model - INFO - Train Translation Error: 0.604246, Rotation Error: 2.616650
+2024-11-06 05:44:08,582 - Model - INFO - Test Translation Error: 0.360812, Rotation Error: 6.407753
+2024-11-06 05:44:08,582 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:44:08,583 - Model - INFO - Epoch 153 (153/300):
+2024-11-06 05:46:00,673 - Model - INFO - Train Translation Error: 0.598269, Rotation Error: 2.683017
+2024-11-06 05:46:26,885 - Model - INFO - Test Translation Error: 0.312753, Rotation Error: 6.794865
+2024-11-06 05:46:26,885 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:46:26,886 - Model - INFO - Epoch 154 (154/300):
+2024-11-06 05:48:18,218 - Model - INFO - Train Translation Error: 0.606452, Rotation Error: 2.520563
+2024-11-06 05:48:44,785 - Model - INFO - Test Translation Error: 0.331362, Rotation Error: 6.546307
+2024-11-06 05:48:44,785 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:48:44,785 - Model - INFO - Epoch 155 (155/300):
+2024-11-06 05:50:36,113 - Model - INFO - Train Translation Error: 0.607883, Rotation Error: 2.586797
+2024-11-06 05:51:03,016 - Model - INFO - Test Translation Error: 0.348353, Rotation Error: 6.709016
+2024-11-06 05:51:03,016 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:51:03,017 - Model - INFO - Epoch 156 (156/300):
+2024-11-06 05:52:55,703 - Model - INFO - Train Translation Error: 0.598148, Rotation Error: 2.622744
+2024-11-06 05:53:22,025 - Model - INFO - Test Translation Error: 0.327363, Rotation Error: 6.545752
+2024-11-06 05:53:22,025 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:53:22,026 - Model - INFO - Epoch 157 (157/300):
+2024-11-06 05:55:13,998 - Model - INFO - Train Translation Error: 0.609029, Rotation Error: 2.616916
+2024-11-06 05:55:40,254 - Model - INFO - Test Translation Error: 0.331964, Rotation Error: 6.541105
+2024-11-06 05:55:40,254 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:55:40,254 - Model - INFO - Epoch 158 (158/300):
+2024-11-06 05:57:33,982 - Model - INFO - Train Translation Error: 0.592333, Rotation Error: 2.642121
+2024-11-06 05:58:00,571 - Model - INFO - Test Translation Error: 0.355844, Rotation Error: 6.496088
+2024-11-06 05:58:00,571 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 05:58:00,572 - Model - INFO - Epoch 159 (159/300):
+2024-11-06 05:59:51,969 - Model - INFO - Train Translation Error: 0.590530, Rotation Error: 2.642895
+2024-11-06 06:00:19,030 - Model - INFO - Test Translation Error: 0.301225, Rotation Error: 6.580330
+2024-11-06 06:00:19,030 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:00:19,031 - Model - INFO - Epoch 160 (160/300):
+2024-11-06 06:02:13,476 - Model - INFO - Train Translation Error: 0.596565, Rotation Error: 2.579179
+2024-11-06 06:02:39,955 - Model - INFO - Test Translation Error: 0.338416, Rotation Error: 6.571852
+2024-11-06 06:02:39,955 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:02:39,955 - Model - INFO - Epoch 161 (161/300):
+2024-11-06 06:04:31,281 - Model - INFO - Train Translation Error: 0.595772, Rotation Error: 2.534648
+2024-11-06 06:04:57,518 - Model - INFO - Test Translation Error: 0.353569, Rotation Error: 6.473443
+2024-11-06 06:04:57,519 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:04:57,519 - Model - INFO - Epoch 162 (162/300):
+2024-11-06 06:06:49,111 - Model - INFO - Train Translation Error: 0.599776, Rotation Error: 2.582847
+2024-11-06 06:07:15,641 - Model - INFO - Test Translation Error: 0.376229, Rotation Error: 6.570895
+2024-11-06 06:07:15,641 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:07:15,642 - Model - INFO - Epoch 163 (163/300):
+2024-11-06 06:09:07,905 - Model - INFO - Train Translation Error: 0.589072, Rotation Error: 2.587988
+2024-11-06 06:09:34,856 - Model - INFO - Test Translation Error: 0.392422, Rotation Error: 6.504712
+2024-11-06 06:09:34,856 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:09:34,857 - Model - INFO - Epoch 164 (164/300):
+2024-11-06 06:11:28,543 - Model - INFO - Train Translation Error: 0.608460, Rotation Error: 2.538214
+2024-11-06 06:11:54,746 - Model - INFO - Test Translation Error: 0.322108, Rotation Error: 6.635065
+2024-11-06 06:11:54,746 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:11:54,746 - Model - INFO - Epoch 165 (165/300):
+2024-11-06 06:13:46,630 - Model - INFO - Train Translation Error: 0.596673, Rotation Error: 2.587424
+2024-11-06 06:14:13,048 - Model - INFO - Test Translation Error: 0.321975, Rotation Error: 6.577844
+2024-11-06 06:14:13,049 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:14:13,049 - Model - INFO - Epoch 166 (166/300):
+2024-11-06 06:16:04,944 - Model - INFO - Train Translation Error: 0.594444, Rotation Error: 2.579214
+2024-11-06 06:16:31,356 - Model - INFO - Test Translation Error: 0.315546, Rotation Error: 6.548027
+2024-11-06 06:16:31,357 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:16:31,357 - Model - INFO - Epoch 167 (167/300):
+2024-11-06 06:18:26,013 - Model - INFO - Train Translation Error: 0.589659, Rotation Error: 2.561997
+2024-11-06 06:18:52,976 - Model - INFO - Test Translation Error: 0.319325, Rotation Error: 6.641824
+2024-11-06 06:18:52,977 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:18:52,977 - Model - INFO - Epoch 168 (168/300):
+2024-11-06 06:20:47,713 - Model - INFO - Train Translation Error: 0.606783, Rotation Error: 2.635998
+2024-11-06 06:21:14,032 - Model - INFO - Test Translation Error: 0.296428, Rotation Error: 6.690533
+2024-11-06 06:21:14,032 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:21:14,032 - Model - INFO - Epoch 169 (169/300):
+2024-11-06 06:23:06,378 - Model - INFO - Train Translation Error: 0.600447, Rotation Error: 2.564125
+2024-11-06 06:23:33,348 - Model - INFO - Test Translation Error: 0.355611, Rotation Error: 6.434645
+2024-11-06 06:23:33,348 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:23:33,348 - Model - INFO - Epoch 170 (170/300):
+2024-11-06 06:25:25,751 - Model - INFO - Train Translation Error: 0.602199, Rotation Error: 2.494133
+2024-11-06 06:25:52,769 - Model - INFO - Test Translation Error: 0.340237, Rotation Error: 6.558868
+2024-11-06 06:25:52,769 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:25:52,770 - Model - INFO - Epoch 171 (171/300):
+2024-11-06 06:27:45,298 - Model - INFO - Train Translation Error: 0.600192, Rotation Error: 2.522818
+2024-11-06 06:28:12,355 - Model - INFO - Test Translation Error: 0.365732, Rotation Error: 6.457663
+2024-11-06 06:28:12,355 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:28:12,356 - Model - INFO - Epoch 172 (172/300):
+2024-11-06 06:30:06,279 - Model - INFO - Train Translation Error: 0.587268, Rotation Error: 2.487332
+2024-11-06 06:30:33,391 - Model - INFO - Test Translation Error: 0.330717, Rotation Error: 6.554214
+2024-11-06 06:30:33,391 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:30:33,392 - Model - INFO - Epoch 173 (173/300):
+2024-11-06 06:32:27,507 - Model - INFO - Train Translation Error: 0.598410, Rotation Error: 2.545360
+2024-11-06 06:32:54,446 - Model - INFO - Test Translation Error: 0.347602, Rotation Error: 6.654491
+2024-11-06 06:32:54,446 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:32:54,447 - Model - INFO - Epoch 174 (174/300):
+2024-11-06 06:34:47,902 - Model - INFO - Train Translation Error: 0.604594, Rotation Error: 2.526665
+2024-11-06 06:35:14,913 - Model - INFO - Test Translation Error: 0.314126, Rotation Error: 6.712255
+2024-11-06 06:35:14,913 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:35:14,914 - Model - INFO - Epoch 175 (175/300):
+2024-11-06 06:37:07,353 - Model - INFO - Train Translation Error: 0.597778, Rotation Error: 2.566581
+2024-11-06 06:37:34,496 - Model - INFO - Test Translation Error: 0.349451, Rotation Error: 6.590447
+2024-11-06 06:37:34,496 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:37:34,497 - Model - INFO - Epoch 176 (176/300):
+2024-11-06 06:39:27,051 - Model - INFO - Train Translation Error: 0.591987, Rotation Error: 2.505204
+2024-11-06 06:39:53,553 - Model - INFO - Test Translation Error: 0.326590, Rotation Error: 6.364769
+2024-11-06 06:39:53,553 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:39:53,553 - Model - INFO - Epoch 177 (177/300):
+2024-11-06 06:41:44,827 - Model - INFO - Train Translation Error: 0.591390, Rotation Error: 2.514490
+2024-11-06 06:42:11,341 - Model - INFO - Test Translation Error: 0.353685, Rotation Error: 6.518467
+2024-11-06 06:42:11,341 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:42:11,342 - Model - INFO - Epoch 178 (178/300):
+2024-11-06 06:44:03,626 - Model - INFO - Train Translation Error: 0.590383, Rotation Error: 2.595085
+2024-11-06 06:44:30,394 - Model - INFO - Test Translation Error: 0.344095, Rotation Error: 6.498986
+2024-11-06 06:44:30,394 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:44:30,395 - Model - INFO - Epoch 179 (179/300):
+2024-11-06 06:46:23,118 - Model - INFO - Train Translation Error: 0.599654, Rotation Error: 2.510624
+2024-11-06 06:46:50,057 - Model - INFO - Test Translation Error: 0.352177, Rotation Error: 6.551152
+2024-11-06 06:46:50,058 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:46:50,058 - Model - INFO - Epoch 180 (180/300):
+2024-11-06 06:48:44,082 - Model - INFO - Train Translation Error: 0.595463, Rotation Error: 2.549132
+2024-11-06 06:49:11,215 - Model - INFO - Test Translation Error: 0.333860, Rotation Error: 6.491164
+2024-11-06 06:49:11,215 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:49:11,215 - Model - INFO - Epoch 181 (181/300):
+2024-11-06 06:51:05,290 - Model - INFO - Train Translation Error: 0.595357, Rotation Error: 2.484466
+2024-11-06 06:51:32,262 - Model - INFO - Test Translation Error: 0.312909, Rotation Error: 6.509142
+2024-11-06 06:51:32,262 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:51:32,262 - Model - INFO - Epoch 182 (182/300):
+2024-11-06 06:53:26,455 - Model - INFO - Train Translation Error: 0.586815, Rotation Error: 2.563619
+2024-11-06 06:53:53,200 - Model - INFO - Test Translation Error: 0.313528, Rotation Error: 6.566722
+2024-11-06 06:53:53,200 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:53:53,200 - Model - INFO - Epoch 183 (183/300):
+2024-11-06 06:55:44,326 - Model - INFO - Train Translation Error: 0.592946, Rotation Error: 2.489292
+2024-11-06 06:56:11,399 - Model - INFO - Test Translation Error: 0.324819, Rotation Error: 6.594537
+2024-11-06 06:56:11,400 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:56:11,400 - Model - INFO - Epoch 184 (184/300):
+2024-11-06 06:58:05,731 - Model - INFO - Train Translation Error: 0.586776, Rotation Error: 2.509326
+2024-11-06 06:58:32,691 - Model - INFO - Test Translation Error: 0.334294, Rotation Error: 6.616039
+2024-11-06 06:58:32,691 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 06:58:32,692 - Model - INFO - Epoch 185 (185/300):
+2024-11-06 07:00:25,983 - Model - INFO - Train Translation Error: 0.595393, Rotation Error: 2.409403
+2024-11-06 07:00:53,037 - Model - INFO - Test Translation Error: 0.359718, Rotation Error: 6.551079
+2024-11-06 07:00:53,037 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:00:53,038 - Model - INFO - Epoch 186 (186/300):
+2024-11-06 07:02:45,310 - Model - INFO - Train Translation Error: 0.592047, Rotation Error: 2.530090
+2024-11-06 07:03:12,026 - Model - INFO - Test Translation Error: 0.310791, Rotation Error: 6.469196
+2024-11-06 07:03:12,026 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:03:12,026 - Model - INFO - Epoch 187 (187/300):
+2024-11-06 07:05:06,549 - Model - INFO - Train Translation Error: 0.595093, Rotation Error: 2.448395
+2024-11-06 07:05:33,550 - Model - INFO - Test Translation Error: 0.335178, Rotation Error: 6.513873
+2024-11-06 07:05:33,550 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:05:33,551 - Model - INFO - Epoch 188 (188/300):
+2024-11-06 07:07:25,782 - Model - INFO - Train Translation Error: 0.595434, Rotation Error: 2.539028
+2024-11-06 07:07:52,238 - Model - INFO - Test Translation Error: 0.367144, Rotation Error: 6.497776
+2024-11-06 07:07:52,238 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:07:52,238 - Model - INFO - Epoch 189 (189/300):
+2024-11-06 07:09:44,045 - Model - INFO - Train Translation Error: 0.603173, Rotation Error: 2.513865
+2024-11-06 07:10:10,640 - Model - INFO - Test Translation Error: 0.338168, Rotation Error: 6.628782
+2024-11-06 07:10:10,640 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:10:10,640 - Model - INFO - Epoch 190 (190/300):
+2024-11-06 07:12:02,451 - Model - INFO - Train Translation Error: 0.599868, Rotation Error: 2.532539
+2024-11-06 07:12:29,405 - Model - INFO - Test Translation Error: 0.357496, Rotation Error: 6.459956
+2024-11-06 07:12:29,405 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:12:29,405 - Model - INFO - Epoch 191 (191/300):
+2024-11-06 07:14:21,021 - Model - INFO - Train Translation Error: 0.598208, Rotation Error: 2.528920
+2024-11-06 07:14:47,226 - Model - INFO - Test Translation Error: 0.339437, Rotation Error: 6.559109
+2024-11-06 07:14:47,226 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:14:47,226 - Model - INFO - Epoch 192 (192/300):
+2024-11-06 07:16:40,311 - Model - INFO - Train Translation Error: 0.596764, Rotation Error: 2.480539
+2024-11-06 07:17:07,306 - Model - INFO - Test Translation Error: 0.332325, Rotation Error: 6.490463
+2024-11-06 07:17:07,306 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:17:07,307 - Model - INFO - Epoch 193 (193/300):
+2024-11-06 07:18:59,892 - Model - INFO - Train Translation Error: 0.591200, Rotation Error: 2.441400
+2024-11-06 07:19:26,832 - Model - INFO - Test Translation Error: 0.319942, Rotation Error: 6.527349
+2024-11-06 07:19:26,832 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:19:26,832 - Model - INFO - Epoch 194 (194/300):
+2024-11-06 07:21:19,668 - Model - INFO - Train Translation Error: 0.599193, Rotation Error: 2.503308
+2024-11-06 07:21:46,633 - Model - INFO - Test Translation Error: 0.332238, Rotation Error: 6.584005
+2024-11-06 07:21:46,633 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:21:46,633 - Model - INFO - Epoch 195 (195/300):
+2024-11-06 07:23:39,689 - Model - INFO - Train Translation Error: 0.599396, Rotation Error: 2.510276
+2024-11-06 07:24:06,476 - Model - INFO - Test Translation Error: 0.360402, Rotation Error: 6.526636
+2024-11-06 07:24:06,476 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:24:06,477 - Model - INFO - Epoch 196 (196/300):
+2024-11-06 07:26:00,708 - Model - INFO - Train Translation Error: 0.596339, Rotation Error: 2.404693
+2024-11-06 07:26:27,616 - Model - INFO - Test Translation Error: 0.306192, Rotation Error: 6.475564
+2024-11-06 07:26:27,616 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:26:27,616 - Model - INFO - Epoch 197 (197/300):
+2024-11-06 07:28:22,218 - Model - INFO - Train Translation Error: 0.594033, Rotation Error: 2.474675
+2024-11-06 07:28:48,889 - Model - INFO - Test Translation Error: 0.321676, Rotation Error: 6.569690
+2024-11-06 07:28:48,889 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:28:48,889 - Model - INFO - Epoch 198 (198/300):
+2024-11-06 07:30:41,791 - Model - INFO - Train Translation Error: 0.588732, Rotation Error: 2.506629
+2024-11-06 07:31:07,976 - Model - INFO - Test Translation Error: 0.353674, Rotation Error: 6.545767
+2024-11-06 07:31:07,976 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:31:07,976 - Model - INFO - Epoch 199 (199/300):
+2024-11-06 07:33:00,833 - Model - INFO - Train Translation Error: 0.586200, Rotation Error: 2.529331
+2024-11-06 07:33:27,929 - Model - INFO - Test Translation Error: 0.342461, Rotation Error: 6.490464
+2024-11-06 07:33:27,929 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:33:27,929 - Model - INFO - Epoch 200 (200/300):
+2024-11-06 07:35:21,095 - Model - INFO - Train Translation Error: 0.595977, Rotation Error: 2.474231
+2024-11-06 07:35:48,135 - Model - INFO - Test Translation Error: 0.331161, Rotation Error: 6.441690
+2024-11-06 07:35:48,135 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:35:48,135 - Model - INFO - Epoch 201 (201/300):
+2024-11-06 07:37:39,685 - Model - INFO - Train Translation Error: 0.591452, Rotation Error: 2.450748
+2024-11-06 07:38:06,146 - Model - INFO - Test Translation Error: 0.328054, Rotation Error: 6.540567
+2024-11-06 07:38:06,146 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:38:06,146 - Model - INFO - Epoch 202 (202/300):
+2024-11-06 07:40:00,969 - Model - INFO - Train Translation Error: 0.592147, Rotation Error: 2.452374
+2024-11-06 07:40:27,538 - Model - INFO - Test Translation Error: 0.374548, Rotation Error: 6.510984
+2024-11-06 07:40:27,538 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:40:27,538 - Model - INFO - Epoch 203 (203/300):
+2024-11-06 07:42:20,932 - Model - INFO - Train Translation Error: 0.595206, Rotation Error: 2.396165
+2024-11-06 07:42:47,830 - Model - INFO - Test Translation Error: 0.319626, Rotation Error: 6.423089
+2024-11-06 07:42:47,831 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:42:47,831 - Model - INFO - Epoch 204 (204/300):
+2024-11-06 07:44:39,105 - Model - INFO - Train Translation Error: 0.595663, Rotation Error: 2.455975
+2024-11-06 07:45:05,771 - Model - INFO - Test Translation Error: 0.344309, Rotation Error: 6.577034
+2024-11-06 07:45:05,771 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:45:05,772 - Model - INFO - Epoch 205 (205/300):
+2024-11-06 07:46:57,423 - Model - INFO - Train Translation Error: 0.590850, Rotation Error: 2.463341
+2024-11-06 07:47:24,348 - Model - INFO - Test Translation Error: 0.400244, Rotation Error: 6.579369
+2024-11-06 07:47:24,349 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:47:24,349 - Model - INFO - Epoch 206 (206/300):
+2024-11-06 07:49:17,771 - Model - INFO - Train Translation Error: 0.590280, Rotation Error: 2.507992
+2024-11-06 07:49:44,861 - Model - INFO - Test Translation Error: 0.382662, Rotation Error: 6.420308
+2024-11-06 07:49:44,861 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:49:44,861 - Model - INFO - Epoch 207 (207/300):
+2024-11-06 07:51:37,865 - Model - INFO - Train Translation Error: 0.586247, Rotation Error: 2.453572
+2024-11-06 07:52:04,383 - Model - INFO - Test Translation Error: 0.339097, Rotation Error: 6.410522
+2024-11-06 07:52:04,383 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:52:04,384 - Model - INFO - Epoch 208 (208/300):
+2024-11-06 07:53:55,357 - Model - INFO - Train Translation Error: 0.595986, Rotation Error: 2.457988
+2024-11-06 07:54:21,696 - Model - INFO - Test Translation Error: 0.362881, Rotation Error: 6.456518
+2024-11-06 07:54:21,696 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:54:21,697 - Model - INFO - Epoch 209 (209/300):
+2024-11-06 07:56:15,920 - Model - INFO - Train Translation Error: 0.601331, Rotation Error: 2.391276
+2024-11-06 07:56:42,518 - Model - INFO - Test Translation Error: 0.323054, Rotation Error: 6.447229
+2024-11-06 07:56:42,518 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:56:42,518 - Model - INFO - Epoch 210 (210/300):
+2024-11-06 07:58:37,398 - Model - INFO - Train Translation Error: 0.598449, Rotation Error: 2.446210
+2024-11-06 07:59:04,384 - Model - INFO - Test Translation Error: 0.348466, Rotation Error: 6.638959
+2024-11-06 07:59:04,384 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 07:59:04,385 - Model - INFO - Epoch 211 (211/300):
+2024-11-06 08:00:57,386 - Model - INFO - Train Translation Error: 0.592142, Rotation Error: 2.420971
+2024-11-06 08:01:24,299 - Model - INFO - Test Translation Error: 0.276650, Rotation Error: 6.536401
+2024-11-06 08:01:24,299 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:01:24,300 - Model - INFO - Epoch 212 (212/300):
+2024-11-06 08:03:15,249 - Model - INFO - Train Translation Error: 0.592329, Rotation Error: 2.475344
+2024-11-06 08:03:42,004 - Model - INFO - Test Translation Error: 0.332914, Rotation Error: 6.361215
+2024-11-06 08:03:42,004 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:03:42,004 - Model - INFO - Epoch 213 (213/300):
+2024-11-06 08:05:35,098 - Model - INFO - Train Translation Error: 0.594644, Rotation Error: 2.444786
+2024-11-06 08:06:01,260 - Model - INFO - Test Translation Error: 0.335921, Rotation Error: 6.444761
+2024-11-06 08:06:01,260 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:06:01,260 - Model - INFO - Epoch 214 (214/300):
+2024-11-06 08:07:53,843 - Model - INFO - Train Translation Error: 0.603701, Rotation Error: 2.457959
+2024-11-06 08:08:20,906 - Model - INFO - Test Translation Error: 0.344547, Rotation Error: 6.490615
+2024-11-06 08:08:20,906 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:08:20,907 - Model - INFO - Epoch 215 (215/300):
+2024-11-06 08:10:14,814 - Model - INFO - Train Translation Error: 0.590936, Rotation Error: 2.462778
+2024-11-06 08:10:41,233 - Model - INFO - Test Translation Error: 0.323218, Rotation Error: 6.467752
+2024-11-06 08:10:41,233 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:10:41,234 - Model - INFO - Epoch 216 (216/300):
+2024-11-06 08:12:32,988 - Model - INFO - Train Translation Error: 0.593294, Rotation Error: 2.442980
+2024-11-06 08:12:59,952 - Model - INFO - Test Translation Error: 0.315228, Rotation Error: 6.468181
+2024-11-06 08:12:59,952 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:12:59,953 - Model - INFO - Epoch 217 (217/300):
+2024-11-06 08:14:54,261 - Model - INFO - Train Translation Error: 0.600979, Rotation Error: 2.426547
+2024-11-06 08:15:20,758 - Model - INFO - Test Translation Error: 0.314491, Rotation Error: 6.517531
+2024-11-06 08:15:20,758 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:15:20,758 - Model - INFO - Epoch 218 (218/300):
+2024-11-06 08:17:14,497 - Model - INFO - Train Translation Error: 0.597345, Rotation Error: 2.441501
+2024-11-06 08:17:41,031 - Model - INFO - Test Translation Error: 0.347258, Rotation Error: 6.566114
+2024-11-06 08:17:41,031 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:17:41,031 - Model - INFO - Epoch 219 (219/300):
+2024-11-06 08:19:35,799 - Model - INFO - Train Translation Error: 0.591140, Rotation Error: 2.464455
+2024-11-06 08:20:02,818 - Model - INFO - Test Translation Error: 0.316897, Rotation Error: 6.448880
+2024-11-06 08:20:02,818 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:20:02,818 - Model - INFO - Epoch 220 (220/300):
+2024-11-06 08:21:57,245 - Model - INFO - Train Translation Error: 0.585314, Rotation Error: 2.440991
+2024-11-06 08:22:23,742 - Model - INFO - Test Translation Error: 0.304914, Rotation Error: 6.609748
+2024-11-06 08:22:23,743 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:22:23,743 - Model - INFO - Epoch 221 (221/300):
+2024-11-06 08:24:15,647 - Model - INFO - Train Translation Error: 0.607566, Rotation Error: 2.481233
+2024-11-06 08:24:41,846 - Model - INFO - Test Translation Error: 0.350279, Rotation Error: 6.574880
+2024-11-06 08:24:41,846 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:24:41,847 - Model - INFO - Epoch 222 (222/300):
+2024-11-06 08:26:33,855 - Model - INFO - Train Translation Error: 0.599697, Rotation Error: 2.471592
+2024-11-06 08:27:00,760 - Model - INFO - Test Translation Error: 0.355936, Rotation Error: 6.463402
+2024-11-06 08:27:00,760 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:27:00,761 - Model - INFO - Epoch 223 (223/300):
+2024-11-06 08:28:53,443 - Model - INFO - Train Translation Error: 0.595121, Rotation Error: 2.498157
+2024-11-06 08:29:19,698 - Model - INFO - Test Translation Error: 0.322535, Rotation Error: 6.591143
+2024-11-06 08:29:19,698 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:29:19,699 - Model - INFO - Epoch 224 (224/300):
+2024-11-06 08:31:12,023 - Model - INFO - Train Translation Error: 0.594132, Rotation Error: 2.448785
+2024-11-06 08:31:38,317 - Model - INFO - Test Translation Error: 0.340089, Rotation Error: 6.523596
+2024-11-06 08:31:38,317 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:31:38,317 - Model - INFO - Epoch 225 (225/300):
+2024-11-06 08:33:32,939 - Model - INFO - Train Translation Error: 0.596005, Rotation Error: 2.431150
+2024-11-06 08:33:59,220 - Model - INFO - Test Translation Error: 0.343946, Rotation Error: 6.547285
+2024-11-06 08:33:59,220 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:33:59,220 - Model - INFO - Epoch 226 (226/300):
+2024-11-06 08:35:50,473 - Model - INFO - Train Translation Error: 0.583769, Rotation Error: 2.440599
+2024-11-06 08:36:16,743 - Model - INFO - Test Translation Error: 0.344347, Rotation Error: 6.622450
+2024-11-06 08:36:16,743 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:36:16,744 - Model - INFO - Epoch 227 (227/300):
+2024-11-06 08:38:09,820 - Model - INFO - Train Translation Error: 0.597408, Rotation Error: 2.391611
+2024-11-06 08:38:36,766 - Model - INFO - Test Translation Error: 0.300710, Rotation Error: 6.593531
+2024-11-06 08:38:36,766 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:38:36,767 - Model - INFO - Epoch 228 (228/300):
+2024-11-06 08:40:29,167 - Model - INFO - Train Translation Error: 0.589273, Rotation Error: 2.366796
+2024-11-06 08:40:55,519 - Model - INFO - Test Translation Error: 0.339642, Rotation Error: 6.478223
+2024-11-06 08:40:55,519 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:40:55,520 - Model - INFO - Epoch 229 (229/300):
+2024-11-06 08:42:49,794 - Model - INFO - Train Translation Error: 0.596974, Rotation Error: 2.374908
+2024-11-06 08:43:16,276 - Model - INFO - Test Translation Error: 0.334701, Rotation Error: 6.482548
+2024-11-06 08:43:16,276 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:43:16,277 - Model - INFO - Epoch 230 (230/300):
+2024-11-06 08:45:09,387 - Model - INFO - Train Translation Error: 0.591150, Rotation Error: 2.440666
+2024-11-06 08:45:35,720 - Model - INFO - Test Translation Error: 0.304769, Rotation Error: 6.410907
+2024-11-06 08:45:35,720 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:45:35,720 - Model - INFO - Epoch 231 (231/300):
+2024-11-06 08:47:28,899 - Model - INFO - Train Translation Error: 0.597080, Rotation Error: 2.429694
+2024-11-06 08:47:55,523 - Model - INFO - Test Translation Error: 0.341424, Rotation Error: 6.485274
+2024-11-06 08:47:55,523 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:47:55,523 - Model - INFO - Epoch 232 (232/300):
+2024-11-06 08:49:49,782 - Model - INFO - Train Translation Error: 0.585679, Rotation Error: 2.465959
+2024-11-06 08:50:16,697 - Model - INFO - Test Translation Error: 0.343880, Rotation Error: 6.531022
+2024-11-06 08:50:16,697 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:50:16,697 - Model - INFO - Epoch 233 (233/300):
+2024-11-06 08:52:07,834 - Model - INFO - Train Translation Error: 0.587494, Rotation Error: 2.455421
+2024-11-06 08:52:34,074 - Model - INFO - Test Translation Error: 0.329726, Rotation Error: 6.450902
+2024-11-06 08:52:34,074 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:52:34,075 - Model - INFO - Epoch 234 (234/300):
+2024-11-06 08:54:26,899 - Model - INFO - Train Translation Error: 0.598895, Rotation Error: 2.415999
+2024-11-06 08:54:53,888 - Model - INFO - Test Translation Error: 0.318350, Rotation Error: 6.519004
+2024-11-06 08:54:53,888 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:54:53,888 - Model - INFO - Epoch 235 (235/300):
+2024-11-06 08:56:46,772 - Model - INFO - Train Translation Error: 0.598487, Rotation Error: 2.366414
+2024-11-06 08:57:13,862 - Model - INFO - Test Translation Error: 0.336724, Rotation Error: 6.579277
+2024-11-06 08:57:13,862 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:57:13,863 - Model - INFO - Epoch 236 (236/300):
+2024-11-06 08:59:07,985 - Model - INFO - Train Translation Error: 0.600854, Rotation Error: 2.376454
+2024-11-06 08:59:34,900 - Model - INFO - Test Translation Error: 0.328085, Rotation Error: 6.526739
+2024-11-06 08:59:34,900 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 08:59:34,901 - Model - INFO - Epoch 237 (237/300):
+2024-11-06 09:01:28,696 - Model - INFO - Train Translation Error: 0.594149, Rotation Error: 2.524925
+2024-11-06 09:01:54,944 - Model - INFO - Test Translation Error: 0.331407, Rotation Error: 6.549942
+2024-11-06 09:01:54,944 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:01:54,945 - Model - INFO - Epoch 238 (238/300):
+2024-11-06 09:03:46,391 - Model - INFO - Train Translation Error: 0.599328, Rotation Error: 2.418792
+2024-11-06 09:04:12,951 - Model - INFO - Test Translation Error: 0.316533, Rotation Error: 6.549168
+2024-11-06 09:04:12,951 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:04:12,951 - Model - INFO - Epoch 239 (239/300):
+2024-11-06 09:06:05,918 - Model - INFO - Train Translation Error: 0.587260, Rotation Error: 2.392514
+2024-11-06 09:06:32,802 - Model - INFO - Test Translation Error: 0.288505, Rotation Error: 6.847263
+2024-11-06 09:06:32,802 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:06:32,803 - Model - INFO - Epoch 240 (240/300):
+2024-11-06 09:08:25,699 - Model - INFO - Train Translation Error: 0.599488, Rotation Error: 2.483726
+2024-11-06 09:08:52,056 - Model - INFO - Test Translation Error: 0.336276, Rotation Error: 6.696825
+2024-11-06 09:08:52,057 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:08:52,057 - Model - INFO - Epoch 241 (241/300):
+2024-11-06 09:10:45,261 - Model - INFO - Train Translation Error: 0.595576, Rotation Error: 2.397074
+2024-11-06 09:11:11,949 - Model - INFO - Test Translation Error: 0.324864, Rotation Error: 6.517621
+2024-11-06 09:11:11,949 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:11:11,949 - Model - INFO - Epoch 242 (242/300):
+2024-11-06 09:13:03,755 - Model - INFO - Train Translation Error: 0.588516, Rotation Error: 2.502092
+2024-11-06 09:13:30,458 - Model - INFO - Test Translation Error: 0.317364, Rotation Error: 6.523958
+2024-11-06 09:13:30,459 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:13:30,459 - Model - INFO - Epoch 243 (243/300):
+2024-11-06 09:15:24,974 - Model - INFO - Train Translation Error: 0.596397, Rotation Error: 2.383570
+2024-11-06 09:15:51,241 - Model - INFO - Test Translation Error: 0.347050, Rotation Error: 6.433442
+2024-11-06 09:15:51,241 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:15:51,241 - Model - INFO - Epoch 244 (244/300):
+2024-11-06 09:17:44,636 - Model - INFO - Train Translation Error: 0.592623, Rotation Error: 2.459540
+2024-11-06 09:18:11,040 - Model - INFO - Test Translation Error: 0.338407, Rotation Error: 6.507403
+2024-11-06 09:18:11,040 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:18:11,041 - Model - INFO - Epoch 245 (245/300):
+2024-11-06 09:20:03,231 - Model - INFO - Train Translation Error: 0.589783, Rotation Error: 2.479240
+2024-11-06 09:20:29,607 - Model - INFO - Test Translation Error: 0.350129, Rotation Error: 6.406084
+2024-11-06 09:20:29,607 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:20:29,607 - Model - INFO - Epoch 246 (246/300):
+2024-11-06 09:22:23,867 - Model - INFO - Train Translation Error: 0.589687, Rotation Error: 2.402250
+2024-11-06 09:22:50,072 - Model - INFO - Test Translation Error: 0.323095, Rotation Error: 6.464265
+2024-11-06 09:22:50,073 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:22:50,073 - Model - INFO - Epoch 247 (247/300):
+2024-11-06 09:24:41,597 - Model - INFO - Train Translation Error: 0.586475, Rotation Error: 2.396510
+2024-11-06 09:25:07,833 - Model - INFO - Test Translation Error: 0.330377, Rotation Error: 6.540899
+2024-11-06 09:25:07,833 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:25:07,834 - Model - INFO - Epoch 248 (248/300):
+2024-11-06 09:27:00,283 - Model - INFO - Train Translation Error: 0.594555, Rotation Error: 2.392568
+2024-11-06 09:27:26,543 - Model - INFO - Test Translation Error: 0.326559, Rotation Error: 6.564962
+2024-11-06 09:27:26,543 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:27:26,543 - Model - INFO - Epoch 249 (249/300):
+2024-11-06 09:29:19,739 - Model - INFO - Train Translation Error: 0.600547, Rotation Error: 2.340335
+2024-11-06 09:29:46,471 - Model - INFO - Test Translation Error: 0.328652, Rotation Error: 6.532809
+2024-11-06 09:29:46,472 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:29:46,472 - Model - INFO - Epoch 250 (250/300):
+2024-11-06 09:31:39,333 - Model - INFO - Train Translation Error: 0.587578, Rotation Error: 2.365852
+2024-11-06 09:32:05,937 - Model - INFO - Test Translation Error: 0.355968, Rotation Error: 6.525173
+2024-11-06 09:32:05,937 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:32:05,937 - Model - INFO - Epoch 251 (251/300):
+2024-11-06 09:33:59,972 - Model - INFO - Train Translation Error: 0.594603, Rotation Error: 2.381236
+2024-11-06 09:34:26,565 - Model - INFO - Test Translation Error: 0.336212, Rotation Error: 6.422078
+2024-11-06 09:34:26,565 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:34:26,566 - Model - INFO - Epoch 252 (252/300):
+2024-11-06 09:36:20,578 - Model - INFO - Train Translation Error: 0.589528, Rotation Error: 2.359343
+2024-11-06 09:36:46,753 - Model - INFO - Test Translation Error: 0.339657, Rotation Error: 6.437855
+2024-11-06 09:36:46,753 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:36:46,754 - Model - INFO - Epoch 253 (253/300):
+2024-11-06 09:38:38,971 - Model - INFO - Train Translation Error: 0.597469, Rotation Error: 2.399015
+2024-11-06 09:39:05,893 - Model - INFO - Test Translation Error: 0.285253, Rotation Error: 6.525670
+2024-11-06 09:39:05,893 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:39:05,893 - Model - INFO - Epoch 254 (254/300):
+2024-11-06 09:40:58,555 - Model - INFO - Train Translation Error: 0.591311, Rotation Error: 2.440760
+2024-11-06 09:41:25,285 - Model - INFO - Test Translation Error: 0.348233, Rotation Error: 6.603516
+2024-11-06 09:41:25,285 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:41:25,285 - Model - INFO - Epoch 255 (255/300):
+2024-11-06 09:43:19,412 - Model - INFO - Train Translation Error: 0.589746, Rotation Error: 2.500597
+2024-11-06 09:43:46,634 - Model - INFO - Test Translation Error: 0.327602, Rotation Error: 6.409494
+2024-11-06 09:43:46,634 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:43:46,635 - Model - INFO - Epoch 256 (256/300):
+2024-11-06 09:45:39,845 - Model - INFO - Train Translation Error: 0.590019, Rotation Error: 2.394346
+2024-11-06 09:46:06,927 - Model - INFO - Test Translation Error: 0.313414, Rotation Error: 6.565959
+2024-11-06 09:46:06,927 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:46:06,928 - Model - INFO - Epoch 257 (257/300):
+2024-11-06 09:48:00,682 - Model - INFO - Train Translation Error: 0.590447, Rotation Error: 2.322277
+2024-11-06 09:48:28,159 - Model - INFO - Test Translation Error: 0.302282, Rotation Error: 6.583231
+2024-11-06 09:48:28,159 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:48:28,159 - Model - INFO - Epoch 258 (258/300):
+2024-11-06 09:50:20,954 - Model - INFO - Train Translation Error: 0.593342, Rotation Error: 2.418306
+2024-11-06 09:50:47,952 - Model - INFO - Test Translation Error: 0.321645, Rotation Error: 6.466623
+2024-11-06 09:50:47,952 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:50:47,952 - Model - INFO - Epoch 259 (259/300):
+2024-11-06 09:52:39,215 - Model - INFO - Train Translation Error: 0.588621, Rotation Error: 2.437826
+2024-11-06 09:53:05,856 - Model - INFO - Test Translation Error: 0.358767, Rotation Error: 6.525330
+2024-11-06 09:53:05,856 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:53:05,857 - Model - INFO - Epoch 260 (260/300):
+2024-11-06 09:54:58,409 - Model - INFO - Train Translation Error: 0.592686, Rotation Error: 2.370593
+2024-11-06 09:55:25,051 - Model - INFO - Test Translation Error: 0.287022, Rotation Error: 6.552354
+2024-11-06 09:55:25,052 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:55:25,052 - Model - INFO - Epoch 261 (261/300):
+2024-11-06 09:57:17,424 - Model - INFO - Train Translation Error: 0.600313, Rotation Error: 2.388257
+2024-11-06 09:57:43,966 - Model - INFO - Test Translation Error: 0.303356, Rotation Error: 6.686375
+2024-11-06 09:57:43,966 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 09:57:43,966 - Model - INFO - Epoch 262 (262/300):
+2024-11-06 09:59:34,811 - Model - INFO - Train Translation Error: 0.592727, Rotation Error: 2.443747
+2024-11-06 10:00:01,845 - Model - INFO - Test Translation Error: 0.317570, Rotation Error: 6.383422
+2024-11-06 10:00:01,845 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:00:01,846 - Model - INFO - Epoch 263 (263/300):
+2024-11-06 10:01:54,295 - Model - INFO - Train Translation Error: 0.587366, Rotation Error: 2.388033
+2024-11-06 10:02:21,368 - Model - INFO - Test Translation Error: 0.322100, Rotation Error: 6.451993
+2024-11-06 10:02:21,368 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:02:21,368 - Model - INFO - Epoch 264 (264/300):
+2024-11-06 10:04:16,152 - Model - INFO - Train Translation Error: 0.585973, Rotation Error: 2.365235
+2024-11-06 10:04:42,846 - Model - INFO - Test Translation Error: 0.316766, Rotation Error: 6.448954
+2024-11-06 10:04:42,846 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:04:42,846 - Model - INFO - Epoch 265 (265/300):
+2024-11-06 10:06:34,199 - Model - INFO - Train Translation Error: 0.593383, Rotation Error: 2.352218
+2024-11-06 10:07:00,866 - Model - INFO - Test Translation Error: 0.339775, Rotation Error: 6.558839
+2024-11-06 10:07:00,866 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:07:00,866 - Model - INFO - Epoch 266 (266/300):
+2024-11-06 10:08:54,339 - Model - INFO - Train Translation Error: 0.585218, Rotation Error: 2.498752
+2024-11-06 10:09:20,955 - Model - INFO - Test Translation Error: 0.352842, Rotation Error: 6.381312
+2024-11-06 10:09:20,955 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:09:20,955 - Model - INFO - Epoch 267 (267/300):
+2024-11-06 10:11:11,807 - Model - INFO - Train Translation Error: 0.590122, Rotation Error: 2.401279
+2024-11-06 10:11:38,012 - Model - INFO - Test Translation Error: 0.329954, Rotation Error: 6.515438
+2024-11-06 10:11:38,012 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:11:38,012 - Model - INFO - Epoch 268 (268/300):
+2024-11-06 10:13:30,571 - Model - INFO - Train Translation Error: 0.599201, Rotation Error: 2.430493
+2024-11-06 10:13:57,231 - Model - INFO - Test Translation Error: 0.360203, Rotation Error: 6.532910
+2024-11-06 10:13:57,231 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:13:57,232 - Model - INFO - Epoch 269 (269/300):
+2024-11-06 10:15:49,224 - Model - INFO - Train Translation Error: 0.585523, Rotation Error: 2.395495
+2024-11-06 10:16:15,924 - Model - INFO - Test Translation Error: 0.322367, Rotation Error: 6.483403
+2024-11-06 10:16:15,924 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:16:15,925 - Model - INFO - Epoch 270 (270/300):
+2024-11-06 10:18:09,502 - Model - INFO - Train Translation Error: 0.593159, Rotation Error: 2.437859
+2024-11-06 10:18:35,777 - Model - INFO - Test Translation Error: 0.349656, Rotation Error: 6.662387
+2024-11-06 10:18:35,777 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:18:35,777 - Model - INFO - Epoch 271 (271/300):
+2024-11-06 10:20:27,179 - Model - INFO - Train Translation Error: 0.589593, Rotation Error: 2.383556
+2024-11-06 10:20:53,803 - Model - INFO - Test Translation Error: 0.313515, Rotation Error: 6.471039
+2024-11-06 10:20:53,803 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:20:53,803 - Model - INFO - Epoch 272 (272/300):
+2024-11-06 10:22:47,409 - Model - INFO - Train Translation Error: 0.586755, Rotation Error: 2.370166
+2024-11-06 10:23:14,390 - Model - INFO - Test Translation Error: 0.331800, Rotation Error: 6.473420
+2024-11-06 10:23:14,391 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:23:14,391 - Model - INFO - Epoch 273 (273/300):
+2024-11-06 10:25:07,515 - Model - INFO - Train Translation Error: 0.585280, Rotation Error: 2.432331
+2024-11-06 10:25:33,741 - Model - INFO - Test Translation Error: 0.331023, Rotation Error: 6.538771
+2024-11-06 10:25:33,741 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:25:33,741 - Model - INFO - Epoch 274 (274/300):
+2024-11-06 10:27:27,593 - Model - INFO - Train Translation Error: 0.588745, Rotation Error: 2.310679
+2024-11-06 10:27:54,510 - Model - INFO - Test Translation Error: 0.352013, Rotation Error: 6.445909
+2024-11-06 10:27:54,510 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:27:54,511 - Model - INFO - Epoch 275 (275/300):
+2024-11-06 10:29:46,802 - Model - INFO - Train Translation Error: 0.595223, Rotation Error: 2.330124
+2024-11-06 10:30:13,396 - Model - INFO - Test Translation Error: 0.345516, Rotation Error: 6.432165
+2024-11-06 10:30:13,396 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:30:13,396 - Model - INFO - Epoch 276 (276/300):
+2024-11-06 10:32:07,521 - Model - INFO - Train Translation Error: 0.596334, Rotation Error: 2.349762
+2024-11-06 10:32:34,532 - Model - INFO - Test Translation Error: 0.309657, Rotation Error: 6.531389
+2024-11-06 10:32:34,532 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:32:34,532 - Model - INFO - Epoch 277 (277/300):
+2024-11-06 10:34:29,126 - Model - INFO - Train Translation Error: 0.586172, Rotation Error: 2.391048
+2024-11-06 10:34:55,370 - Model - INFO - Test Translation Error: 0.338490, Rotation Error: 6.430127
+2024-11-06 10:34:55,370 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:34:55,370 - Model - INFO - Epoch 278 (278/300):
+2024-11-06 10:36:48,329 - Model - INFO - Train Translation Error: 0.600056, Rotation Error: 2.322724
+2024-11-06 10:37:15,415 - Model - INFO - Test Translation Error: 0.368516, Rotation Error: 6.338290
+2024-11-06 10:37:15,416 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:37:15,416 - Model - INFO - Epoch 279 (279/300):
+2024-11-06 10:39:06,604 - Model - INFO - Train Translation Error: 0.589751, Rotation Error: 2.379949
+2024-11-06 10:39:32,920 - Model - INFO - Test Translation Error: 0.355690, Rotation Error: 6.426793
+2024-11-06 10:39:32,920 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:39:32,921 - Model - INFO - Epoch 280 (280/300):
+2024-11-06 10:41:24,742 - Model - INFO - Train Translation Error: 0.588985, Rotation Error: 2.383433
+2024-11-06 10:41:51,303 - Model - INFO - Test Translation Error: 0.326524, Rotation Error: 6.507678
+2024-11-06 10:41:51,304 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:41:51,304 - Model - INFO - Epoch 281 (281/300):
+2024-11-06 10:43:44,312 - Model - INFO - Train Translation Error: 0.592043, Rotation Error: 2.381402
+2024-11-06 10:44:11,335 - Model - INFO - Test Translation Error: 0.316833, Rotation Error: 6.537217
+2024-11-06 10:44:11,335 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:44:11,335 - Model - INFO - Epoch 282 (282/300):
+2024-11-06 10:46:05,133 - Model - INFO - Train Translation Error: 0.590960, Rotation Error: 2.422386
+2024-11-06 10:46:31,622 - Model - INFO - Test Translation Error: 0.328149, Rotation Error: 6.452600
+2024-11-06 10:46:31,622 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:46:31,623 - Model - INFO - Epoch 283 (283/300):
+2024-11-06 10:48:25,670 - Model - INFO - Train Translation Error: 0.588807, Rotation Error: 2.423357
+2024-11-06 10:48:52,582 - Model - INFO - Test Translation Error: 0.319113, Rotation Error: 6.541918
+2024-11-06 10:48:52,582 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:48:52,582 - Model - INFO - Epoch 284 (284/300):
+2024-11-06 10:50:46,345 - Model - INFO - Train Translation Error: 0.582302, Rotation Error: 2.340125
+2024-11-06 10:51:12,930 - Model - INFO - Test Translation Error: 0.329738, Rotation Error: 6.475005
+2024-11-06 10:51:12,930 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:51:12,931 - Model - INFO - Epoch 285 (285/300):
+2024-11-06 10:53:07,423 - Model - INFO - Train Translation Error: 0.600701, Rotation Error: 2.315798
+2024-11-06 10:53:33,974 - Model - INFO - Test Translation Error: 0.304079, Rotation Error: 6.476012
+2024-11-06 10:53:33,975 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:53:33,975 - Model - INFO - Epoch 286 (286/300):
+2024-11-06 10:55:25,305 - Model - INFO - Train Translation Error: 0.580755, Rotation Error: 2.405317
+2024-11-06 10:55:51,629 - Model - INFO - Test Translation Error: 0.313307, Rotation Error: 6.475209
+2024-11-06 10:55:51,629 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:55:51,630 - Model - INFO - Epoch 287 (287/300):
+2024-11-06 10:57:42,826 - Model - INFO - Train Translation Error: 0.592981, Rotation Error: 2.341534
+2024-11-06 10:58:08,982 - Model - INFO - Test Translation Error: 0.332233, Rotation Error: 6.498103
+2024-11-06 10:58:08,982 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 10:58:08,982 - Model - INFO - Epoch 288 (288/300):
+2024-11-06 11:00:00,909 - Model - INFO - Train Translation Error: 0.589105, Rotation Error: 2.354430
+2024-11-06 11:00:27,103 - Model - INFO - Test Translation Error: 0.362292, Rotation Error: 6.528199
+2024-11-06 11:00:27,103 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:00:27,103 - Model - INFO - Epoch 289 (289/300):
+2024-11-06 11:02:21,716 - Model - INFO - Train Translation Error: 0.590717, Rotation Error: 2.395114
+2024-11-06 11:02:48,703 - Model - INFO - Test Translation Error: 0.324993, Rotation Error: 6.420170
+2024-11-06 11:02:48,703 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:02:48,704 - Model - INFO - Epoch 290 (290/300):
+2024-11-06 11:04:43,242 - Model - INFO - Train Translation Error: 0.584087, Rotation Error: 2.328653
+2024-11-06 11:05:10,168 - Model - INFO - Test Translation Error: 0.356095, Rotation Error: 6.442509
+2024-11-06 11:05:10,168 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:05:10,169 - Model - INFO - Epoch 291 (291/300):
+2024-11-06 11:07:03,113 - Model - INFO - Train Translation Error: 0.596088, Rotation Error: 2.422461
+2024-11-06 11:07:30,102 - Model - INFO - Test Translation Error: 0.342062, Rotation Error: 6.534663
+2024-11-06 11:07:30,102 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:07:30,103 - Model - INFO - Epoch 292 (292/300):
+2024-11-06 11:09:21,560 - Model - INFO - Train Translation Error: 0.594178, Rotation Error: 2.415531
+2024-11-06 11:09:48,309 - Model - INFO - Test Translation Error: 0.323842, Rotation Error: 6.450157
+2024-11-06 11:09:48,309 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:09:48,309 - Model - INFO - Epoch 293 (293/300):
+2024-11-06 11:11:39,572 - Model - INFO - Train Translation Error: 0.601101, Rotation Error: 2.381248
+2024-11-06 11:12:05,824 - Model - INFO - Test Translation Error: 0.367644, Rotation Error: 6.531593
+2024-11-06 11:12:05,824 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:12:05,824 - Model - INFO - Epoch 294 (294/300):
+2024-11-06 11:13:59,668 - Model - INFO - Train Translation Error: 0.596252, Rotation Error: 2.374124
+2024-11-06 11:14:26,694 - Model - INFO - Test Translation Error: 0.333535, Rotation Error: 6.437342
+2024-11-06 11:14:26,694 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:14:26,694 - Model - INFO - Epoch 295 (295/300):
+2024-11-06 11:16:19,560 - Model - INFO - Train Translation Error: 0.590040, Rotation Error: 2.447347
+2024-11-06 11:16:45,954 - Model - INFO - Test Translation Error: 0.336671, Rotation Error: 6.410310
+2024-11-06 11:16:45,954 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:16:45,954 - Model - INFO - Epoch 296 (296/300):
+2024-11-06 11:18:38,360 - Model - INFO - Train Translation Error: 0.588773, Rotation Error: 2.345675
+2024-11-06 11:19:05,252 - Model - INFO - Test Translation Error: 0.343147, Rotation Error: 6.390599
+2024-11-06 11:19:05,253 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:19:05,253 - Model - INFO - Epoch 297 (297/300):
+2024-11-06 11:20:57,277 - Model - INFO - Train Translation Error: 0.594828, Rotation Error: 2.327775
+2024-11-06 11:21:23,840 - Model - INFO - Test Translation Error: 0.315983, Rotation Error: 6.491561
+2024-11-06 11:21:23,840 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:21:23,841 - Model - INFO - Epoch 298 (298/300):
+2024-11-06 11:23:15,057 - Model - INFO - Train Translation Error: 0.598581, Rotation Error: 2.370431
+2024-11-06 11:23:41,286 - Model - INFO - Test Translation Error: 0.342033, Rotation Error: 6.545147
+2024-11-06 11:23:41,286 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:23:41,286 - Model - INFO - Epoch 299 (299/300):
+2024-11-06 11:25:32,919 - Model - INFO - Train Translation Error: 0.593692, Rotation Error: 2.421987
+2024-11-06 11:25:59,293 - Model - INFO - Test Translation Error: 0.322854, Rotation Error: 6.510428
+2024-11-06 11:25:59,293 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:25:59,293 - Model - INFO - Epoch 300 (300/300):
+2024-11-06 11:27:50,949 - Model - INFO - Train Translation Error: 0.606558, Rotation Error: 2.377272
+2024-11-06 11:28:18,067 - Model - INFO - Test Translation Error: 0.329424, Rotation Error: 6.360160
+2024-11-06 11:28:18,067 - Model - INFO - Best Test Translation Error: 0.356745, Rotation Error: 5.825111
+2024-11-06 11:28:18,067 - Model - INFO - End of training...
