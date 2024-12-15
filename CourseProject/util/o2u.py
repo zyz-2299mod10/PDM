@@ -11,7 +11,7 @@ def generate_obj_urdf(obj_path):
     obj_path = obj_path.replace(excl_filename, "")
     print(obj_path)
     
-    urdf_path = os.path.join(obj_path, "urdf/")
+    urdf_path = obj_path #os.path.join(obj_path, "urdf/")
     with open(str(urdf_path) + excl_filename + '.urdf', 'w') as f:
         f.write('<?xml version="1.0" ?>\n')
         f.write('<robot name="obj.urdf">\n')

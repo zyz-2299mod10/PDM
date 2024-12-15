@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="Arrow_cube_cap">
+<robot name="Cross_cube_cap">
   <link name="baseLink">
     <contact>
     	<friction_anchor/>
@@ -13,7 +13,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="Arrow_cube_cap.obj" scale="0.6 0.6 0.6"/>
+        <mesh filename="Cross_cube_cap.obj" scale="0.6 0.6 0.6"/>
       </geometry>
        <material name="white">
         <color rgba="1 1 1 1"/>
@@ -22,7 +22,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="Arrow_cube_cap.obj" scale="0.6 0.6 0.6"/>
+        <mesh filename="Cross_cube_cap.obj" scale="0.6 0.6 0.6"/>
       </geometry>
       <sdf resolution="300"/>
     </collision>

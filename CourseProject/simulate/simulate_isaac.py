@@ -99,7 +99,7 @@ class environment:
         cam_target = gymapi.Vec3(0, -0.4, 0)
         middle_env = self.envs[self.num_envs // 2 + num_per_row // 2]
         self.gym.viewer_camera_look_at(self.viewer, middle_env, cam_pos, cam_target)
-        
+    
     def set_mesh_asset(self, 
                        mesh_file:str, 
                        fix_base:bool, 
@@ -110,12 +110,12 @@ class environment:
                        rot:gymapi.Quat = None,
                        color:gymapi.Vec3 = None,
                        random_pos_range:List[List] = None, 
-                       random_rot_range:List[List[List]] = None,
+                       random_rot:List[List] = None,
                        semantic_id:int = None,):
         '''
         rot: exact quaternion
         random_pos_range: position random offset. format: [[x], [y], [z]]
-        random_rot_range: given rotation axis and rotation range (degress). format: [[[axis], [range]]] (n* 3* 2)
+        random_rot_range: given rotation axis and rotation range (degress). format: [[axis], [range]]
         '''
         if name == None: 
             raise Exception("Need to name object")
@@ -124,24 +124,7 @@ class environment:
         asset_options.fix_base_link = fix_base
         asset_options.disable_gravity = disable_gravity
         asset_options.use_mesh_materials = True
-        _asset = self.gym.load_asset(self.sim, self.urdf_root, mesh_file, asset_options)
-        
-        if rot is None:
-            rot = gymapi.Quat(0, 0, 0, 1)
-        
-        if random_pos_range is not None:
-            pos.x += np.random.uniform(random_pos_range[0][0], random_pos_range[0][1])
-            pos.y += np.random.uniform(random_pos_range[1][0], random_pos_range[1][1])
-            pos.z += np.random.uniform(random_pos_range[2][0], random_pos_range[2][1])
-        
-        if random_rot_range is not None:
-            rot = gymapi.Quat(0, 0, 0, 1)
-            for rotation in random_rot_range:
-                rot_current = gymapi.Quat.from_axis_angle(gymapi.Vec3(rotation[0][0],
-                                                                  rotation[0][1],
-                                                                  rotation[0][2]),
-                                                                  np.random.uniform(rotation[1][0], rotation[1][1]) * math.pi)
-                rot = quat_mul_NotForTensor(rot, rot_current)
+        _asset = self.gym.load_asset(self.sim, self.urdf_root, mesh_file, asset_options)        
         
         # urdf information
         urdf_info = get_urdf_info(self.urdf_root, mesh_file)
@@ -155,6 +138,8 @@ class environment:
             "asset": _asset,
             "obj_pos": pos,
             "obj_rot": rot,
+            "random_pos_range": random_pos_range,
+            "random_rot": random_rot,
             "collision": collision,
             "color": color,
             "urdf_collisionMesh_path": urdf_collisionMesh_path,
@@ -173,7 +158,7 @@ class environment:
                       rot:gymapi.Quat = None, 
                       color:gymapi.Vec3 = None, 
                       random_pos_range:List[List] = None, 
-                      random_rot_range:List[List] = None,
+                      random_rot:List[List] = None,
                       semantic_id:int = None,):
         '''
         rot: exact quaternion
@@ -189,25 +174,13 @@ class environment:
         asset_options.use_mesh_materials = True
         _asset = self.gym.create_box(self.sim, dims.x, dims.y, dims.z, asset_options)
         
-        if rot is None:
-            rot = gymapi.Quat(0, 0, 0, 1) # X, Y, Z, W
-        
-        if random_pos_range is not None:
-            pos.x += np.random.uniform(random_pos_range[0][0], random_pos_range[0][1])
-            pos.y += np.random.uniform(random_pos_range[1][0], random_pos_range[1][1])
-            pos.z += np.random.uniform(random_pos_range[2][0], random_pos_range[2][1])
-
-        if random_rot_range is not None:
-            rot = gymapi.Quat.from_axis_angle(gymapi.Vec3(random_rot_range[0][0],
-                                                          random_rot_range[0][1],
-                                                          random_rot_range[0][2]),
-                                              np.random.uniform(random_rot_range[1][0], random_rot_range[1][1]) * math.pi)
-
         asset_info = {
             "dims": dims,
             "asset": _asset,
             "obj_pos": pos,
             "obj_rot": rot,
+            "random_pos_range": random_pos_range,
+            "random_rot": random_rot,
             "collision": collision,
             "color": color,
             "semantic_id": semantic_id,
@@ -327,9 +300,29 @@ class environment:
             for obj_name in self.assets:   
                 obj = self.assets[obj_name]
                 _pose = gymapi.Transform()
-                
+
                 _pose.p = obj["obj_pos"]
-                _pose.r = obj["obj_rot"] 
+                if obj["random_pos_range"] is not None:
+                    random_pos_range = obj["random_pos_range"]
+                    _pose.p.x += np.random.uniform(random_pos_range[0][0], random_pos_range[0][1])
+                    _pose.p.y += np.random.uniform(random_pos_range[1][0], random_pos_range[1][1])
+                    _pose.p.z += np.random.uniform(random_pos_range[2][0], random_pos_range[2][1])
+
+                if obj["obj_rot"] is not None:
+                    _pose.r = obj["obj_rot"]
+                
+                elif obj["random_rot"] is not None:
+                    random_rot = obj["random_rot"]
+                    
+                    rot = gymapi.Quat(0, 0, 0, 1)
+                    for rotation in random_rot:
+                        rot_current = gymapi.Quat.from_axis_angle(gymapi.Vec3(rotation[0][0],
+                                                                              rotation[0][1],
+                                                                              rotation[0][2]),
+                                                                              np.random.uniform(rotation[1][0], rotation[1][1]) * math.pi)
+                        rot = quat_mul_NotForTensor(rot, rot_current)
+                    
+                    _pose.r = rot
 
                 if obj["semantic_id"] is not None:
                     _handle = self.gym.create_actor(env, obj["asset"], _pose, obj_name, i, obj["collision"], segmentationId = obj["semantic_id"])
@@ -402,7 +395,7 @@ class environment:
             raise Exception(f"can't find the camera id: [{id}]")
 
         self.gym.start_access_image_tensors(self.sim)
-        # get depth image
+        
         color_tensor = self.gym.get_camera_image_gpu_tensor(self.sim, self.envs[env_idx], self.camera[id]["handle"], gymapi.IMAGE_COLOR)
         rgb = gymtorch.wrap_tensor(color_tensor).cpu().numpy()[..., 0:3]
         depth_tensor = self.gym.get_camera_image_gpu_tensor(self.sim, self.envs[env_idx], self.camera[id]["handle"], gymapi.IMAGE_DEPTH)
@@ -410,15 +403,17 @@ class environment:
         segmentation_tensor = self.gym.get_camera_image_gpu_tensor(self.sim, self.envs[env_idx], self.camera[id]["handle"], gymapi.IMAGE_SEGMENTATION)
         segmentation = gymtorch.wrap_tensor(segmentation_tensor).cpu().numpy()
 
-        # for hole pose estimate
         height, width, _ = rgb.shape
         intrinsic = compute_camera_intrinsics_matrix(height, width, 90)
         camera_transform = self.gym.get_camera_transform(self.sim, self.envs[env_idx], self.camera[id]["handle"])
         view_matrix = self.gym.get_camera_view_matrix(self.sim, self.envs[env_idx], self.camera[id]["handle"])
+        view_matrix[:3, 3] = np.array([camera_transform.p.x, camera_transform.p.y, camera_transform.p.z]) 
+        view_matrix[3, :3] = np.array([0, 0, 0])
 
         if store:
-            store_depth = (-1) * depth * 1000 / 255 # to mm
-            # print(store_depth)
+            depth_normalized = cv2.normalize(depth, None, 0, 255, cv2.NORM_MINMAX)
+            store_depth = depth_normalized.astype(np.uint8)
+            
             cv2.imwrite(f"./{self.camera[id]['mode']}_{id}_rgb.png", rgb)
             cv2.imwrite(f"./{self.camera[id]['mode']}_{id}_depth.png", store_depth)
             cv2.imwrite(f"./{self.camera[id]['mode']}_{id}_segmentation.png", segmentation)
@@ -553,13 +548,13 @@ class Mover():
         grasp_pos = torch.tensor(grasp_pos).to(self.env.device)
 
         up_rot = gymapi.Quat.from_axis_angle(gymapi.Vec3(1, 0, 0), math.pi)
-        up_rot = torch.tensor([[up_rot.x, up_rot.y, up_rot.z, up_rot.w]]).to(self.env.device)
+        up_rot = torch.tensor([[up_rot.x, up_rot.y, up_rot.z, up_rot.w]]).repeat(self.env.num_envs, 1).to(self.env.device)
         obj_rot = rb_states[self.env.obj_idxs[name], 3:7]
         grasp_rot = quat_mul(obj_rot, up_rot)            
 
         return grasp_pos, grasp_rot
     
-    def get_pridicted_hole_pose(self, camera_id, visualize = False):
+    def get_pridicted_hole_pose(self, camera_id, env_idx = 0, visualize = False):
         '''
         STILL NEED TO IMPROVE !!! (about the rotation accuracy, also not sure the performance in real-world..)
         Get the predicted hole pose from specific camera (only work in 1 env)
@@ -570,14 +565,14 @@ class Mover():
         if not self.env.camera:
             raise Exception("Need to set camera first !!")
 
-        depth, rgb, segmentation, intrinsic, view_matrix, t = self.env.get_camera_img(id = camera_id, env_idx = 0)
+        depth, rgb, segmentation, intrinsic, view_matrix, t = self.env.get_camera_img(id = camera_id, env_idx = env_idx, store=True)
         depth = -depth
         view_matrix[:3, :3] = view_matrix[:3, :3] @ R.from_euler("XYZ", np.array([np.pi, 0, 0])).as_matrix()
         view_matrix[:3, 3] = np.array([t.p.x, t.p.y, t.p.z]) 
         view_matrix[3, :3] = np.array([0, 0, 0])
 
-        predictor = CoarseMover(model_path='/kpts/2024-11-03_08-22', model_name='pointnet2_kpts',
-                               checkpoint_name='best_model_e_390.pth', use_cpu=False, out_channel=9)
+        predictor = CoarseMover(model_path=f'/kpts/{self.env.args.object}', model_name='pointnet2_kpts',
+                               checkpoint_name='best_model.pth', use_cpu=False, out_channel=9)
         H = predictor.predict_kpts_pose(depth=depth, factor=1, K=intrinsic.cpu().numpy(), view_matrix=view_matrix, fine_grain=False, visualize=visualize)        
         H = torch.tensor(H, device = self.env.device).to(torch.float32)
 
@@ -599,8 +594,8 @@ class Mover():
         view_matrix[:3, 3] = np.array([t.p.x, t.p.y, t.p.z]) 
         view_matrix[3, :3] = np.array([0, 0, 0])
 
-        predictor = FineMover(model_path='offset/2024-11-04_13-42', model_name='pointnet2_offset',
-                              checkpoint_name='best_model_e_41.pth', use_cpu=False, out_channel=9)
+        predictor = FineMover(model_path=f'offset/{self.env.args.object}', model_name='pointnet2_offset',
+                              checkpoint_name='best_model.pth', use_cpu=False, out_channel=9)
         
         delta_trans, delta_rot, delta_rot_euler = predictor.predict_refinement_pose(depth=depth, factor=1, K=intrinsic.cpu().numpy(), view_matrix=view_matrix,
                                                                                     gripper_pose = gripper_pos, visualize = visualize)
@@ -692,16 +687,28 @@ class Mover():
         else:
             grip_acts = torch.Tensor([[0.04, 0.04]] * self.env.num_envs)
 
-        delta_rot = euler_rotation_error_to_quaternion(delta_rot[0].cpu().numpy())
-        delta_rot = delta_rot[np.newaxis, :]
+        delta_rot = euler_rotation_error_to_quaternion(delta_rot.cpu().numpy())
         delta_rot = torch.tensor(delta_rot).to(delta_pos)
+        no_pos = torch.zeros([1, 3]).to(delta_pos)
         for _ in range(T):
             rb_states, dof_pos, _ = self.env.step() 
-            dpose = torch.cat([delta_pos, delta_rot], -1).unsqueeze(-1)
+            dpose = torch.cat([no_pos, delta_rot], -1).unsqueeze(-1)
 
             # Deploy control based on type
             pose_action[:, :7] = dof_pos.squeeze(-1)[:, :7] + self.control_ik(dpose)
             pose_action[:, 7:9] = grip_acts
 
             self.env.gym.set_dof_position_target_tensor(self.env.sim, gymtorch.unwrap_tensor(pose_action))
+
+        # no_rot = np.array([[0, 0, 0]])
+        # no_rot = torch.tensor(no_rot).to(delta_pos)
+        # for _ in range(T):
+        #     rb_states, dof_pos, _ = self.env.step() 
+        #     dpose = torch.cat([delta_pos, no_rot], -1).unsqueeze(-1)
+
+        #     # Deploy control based on type
+        #     pose_action[:, :7] = dof_pos.squeeze(-1)[:, :7] + self.control_ik(dpose)
+        #     pose_action[:, 7:9] = grip_acts
+
+        #     self.env.gym.set_dof_position_target_tensor(self.env.sim, gymtorch.unwrap_tensor(pose_action))
 

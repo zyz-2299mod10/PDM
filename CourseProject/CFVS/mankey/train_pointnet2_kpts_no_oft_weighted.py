@@ -54,13 +54,13 @@ def construct_dataset(is_train: bool) -> (torch.utils.data.Dataset, SupervisedKe
     db_config = SpartanSupvervisedKeypointDBConfig()
     db_config.keypoint_yaml_name = 'peg_in_hole.yaml'
     # db_config.pdc_data_root = '/tmp2/r09944001/data/pdc'
-    db_config.pdc_data_root = '/home/hcis/YongZhe/PDM/PDM_dataset'
+    db_config.pdc_data_root = '/home/hcis/Perception/pdm-f24/PDM/PDM_dataset'
     if is_train:
         # db_config.config_file_path = '/tmp2/r09944001/robot-peg-in-hole-task/mankey/config/insertion_20220616_coarse_noiseaug3_rotscale.txt'
-        db_config.config_file_path = '/home/hcis/YongZhe/PDM/CFVS/mankey/config/Square_coarse.txt'
+        db_config.config_file_path = '/home/hcis/Perception/pdm-f24/PDM/CFVS/mankey/config/Cross_coarse.txt'
     else:
         # db_config.config_file_path = '/tmp2/r09944001/robot-peg-in-hole-task/mankey/config/insertion_20220616_coarse_noiseaug3_rotscale.txt'
-        db_config.config_file_path = '/home/hcis/YongZhe/PDM/CFVS/mankey/config/Square_coarse.txt'
+        db_config.config_file_path = '/home/hcis/Perception/pdm-f24/PDM/CFVS/mankey/config/Cross_coarse.txt'
     database = SpartanSupervisedKeypointDatabase(db_config)
 
     # Construct torch dataset
@@ -100,25 +100,25 @@ def test(model, loader, out_channel, criterion_rmse, criterion_cos, criterion_bc
         kpt_of_gt = data[parameter.kpt_of_key]
         pcd_centroid = data[parameter.pcd_centroid_key]
         pcd_mean = data[parameter.pcd_mean_key]
-        gripper_pose = data[parameter.gripper_pose_key]
-        delta_xyz = data[parameter.delta_xyz_key]
-        delta_rot = data[parameter.delta_rot_key]
+        # gripper_pose = data[parameter.gripper_pose_key]
+        # delta_xyz = data[parameter.delta_xyz_key]
+        # delta_rot = data[parameter.delta_rot_key]
         heatmap_target = data[parameter.heatmap_key]
-        hole_top_rotation = data[parameter.hole_top_rotation] ###
+        # hole_top_rotation = data[parameter.hole_top_rotation] ###
         #segmentation_target = data[parameter.segmentation_key]
         #unit_delta_xyz = data[parameter.unit_delta_xyz_key]
         #step_size = data[parameter.step_size_key]
         if not args.use_cpu:
             points = points.cuda()
             kpt_of_gt = kpt_of_gt.cuda()
-            delta_xyz = delta_xyz.cuda()
-            delta_rot = delta_rot.cuda()
+            # delta_xyz = delta_xyz.cuda()
+            # delta_rot = delta_rot.cuda()
             pcd_centroid = pcd_centroid.cuda()
             pcd_mean = pcd_mean.cuda()
-            gripper_pose = gripper_pose.cuda()
+            # gripper_pose = gripper_pose.cuda()
             #segmentation_target = segmentation_target.cuda()
             heatmap_target = heatmap_target.cuda()
-            hole_top_rotation = hole_top_rotation.cuda() ###
+            # hole_top_rotation = hole_top_rotation.cuda() ###
             '''
             delta_rot = delta_rot.cuda()
             delta_xyz = delta_xyz.cuda()
@@ -127,17 +127,17 @@ def test(model, loader, out_channel, criterion_rmse, criterion_cos, criterion_bc
             heatmap_target = heatmap_target.cuda()
             '''
         kpt_of_pred, trans_of_pred, rot_of_pred, mean_kpt_pred, rot_mat_pred, confidence = network(points)
-        gripper_pos = gripper_pose[:, :3, 3]
-        gripper_rot = gripper_pose[:, :3, :3]
+        # gripper_pos = gripper_pose[:, :3, 3]
+        # gripper_rot = gripper_pose[:, :3, :3]
         #points = points.transpose(2, 1)
         #kpt_pred = points - kpt_of_pred
         #mean_kpt_pred = torch.mean(kpt_pred, dim=1)
-        real_kpt_pred = (mean_kpt_pred * pcd_mean) + pcd_centroid
-        real_kpt_pred = real_kpt_pred / 1000  #unit: mm to m
-        real_trans_of_pred = (trans_of_pred * pcd_mean) / 1000 #unit: mm to m
-        delta_trans_pred = real_kpt_pred - gripper_pos + real_trans_of_pred
-        delta_rot_pred = torch.bmm(torch.transpose(gripper_rot, 1, 2), rot_mat_pred)
-        delta_rot_pred = torch.bmm(delta_rot_pred, rot_of_pred)
+        # real_kpt_pred = (mean_kpt_pred * pcd_mean) + pcd_centroid
+        # real_kpt_pred = real_kpt_pred / 1000  #unit: mm to m
+        # real_trans_of_pred = (trans_of_pred * pcd_mean) / 1000 #unit: mm to m
+        # delta_trans_pred = real_kpt_pred - gripper_pos + real_trans_of_pred
+        # delta_rot_pred = torch.bmm(torch.transpose(gripper_rot, 1, 2), rot_mat_pred)
+        # delta_rot_pred = torch.bmm(delta_rot_pred, rot_of_pred)
 
         '''
         # action control
@@ -147,9 +147,9 @@ def test(model, loader, out_channel, criterion_rmse, criterion_cos, criterion_bc
         '''
         # loss computation
         loss_kptof = criterion_kptof(kpt_of_pred, kpt_of_gt, heatmap_target).sum()
-        loss_t = (1-criterion_cos(delta_trans_pred, delta_xyz)).mean() + criterion_rmse(delta_trans_pred, delta_xyz)
+        # loss_t = (1-criterion_cos(delta_trans_pred, delta_xyz)).mean() + criterion_rmse(delta_trans_pred, delta_xyz)
         # loss_r = criterion_rmse(delta_rot_pred, delta_rot)
-        loss_hole_rotation = criterion_rmse(rot_mat_pred, hole_top_rotation) ###
+        # loss_hole_rotation = criterion_rmse(rot_mat_pred, hole_top_rotation) ###
         loss_mask = criterion_rmse(confidence, heatmap_target)
            
         '''
@@ -160,9 +160,9 @@ def test(model, loader, out_channel, criterion_rmse, criterion_cos, criterion_bc
         loss_step_size = criterion_bce(step_size_pred, step_size)
         '''
         kptof_error.append(loss_kptof.item())
-        xyz_error.append(loss_t.item())
+        # xyz_error.append(loss_t.item())
         # rot_error.append(loss_r.item())
-        rot_error.append(loss_hole_rotation.item()) ###
+        # rot_error.append(loss_hole_rotation.item()) ###
         mask_error.append(loss_mask.item())
         '''
         rot_error.append(loss_r.item())
@@ -171,8 +171,8 @@ def test(model, loader, out_channel, criterion_rmse, criterion_cos, criterion_bc
         step_size_error.append(loss_step_size.item())
         '''
     kptof_error = sum(kptof_error) / len(kptof_error)
-    xyz_error = sum(xyz_error) / len(xyz_error)
-    rot_error = sum(rot_error) / len(rot_error)
+    # xyz_error = sum(xyz_error) / len(xyz_error)
+    # rot_error = sum(rot_error) / len(rot_error)
     mask_error = sum(mask_error) / len(mask_error)
     '''
     rot_error = sum(rot_error) / len(rot_error)
@@ -181,7 +181,8 @@ def test(model, loader, out_channel, criterion_rmse, criterion_cos, criterion_bc
     step_size_error = sum(step_size_error) / len(step_size_error)
     '''
     #return rot_error, xyz_error, heatmap_error, step_size_error
-    return kptof_error, xyz_error, rot_error, mask_error
+    # return kptof_error, xyz_error, rot_error, mask_error
+    return kptof_error, mask_error
 
 def main(args):
     def log_string(str):
@@ -306,28 +307,28 @@ def main(args):
             points = points.transpose(2, 1)
             heatmap_target = data[parameter.heatmap_key]
             #segmentation_target = data[parameter.segmentation_key]
-            delta_rot = data[parameter.delta_rot_key]
-            delta_xyz = data[parameter.delta_xyz_key]
+            # delta_rot = data[parameter.delta_rot_key]
+            # delta_xyz = data[parameter.delta_xyz_key]
             #unit_delta_xyz = data[parameter.unit_delta_xyz_key]
             #step_size = data[parameter.step_size_key]
             kpt_of_gt = data[parameter.kpt_of_key]
             pcd_centroid = data[parameter.pcd_centroid_key]
             pcd_mean = data[parameter.pcd_mean_key]
-            gripper_pose = data[parameter.gripper_pose_key]
-            hole_top_rotation = data[parameter.hole_top_rotation] ###
+            # gripper_pose = data[parameter.gripper_pose_key]
+            # hole_top_rotation = data[parameter.hole_top_rotation] ###
             # print(hole_top_rotation)
  
             if not args.use_cpu:
                 points = points.cuda()
                 kpt_of_gt = kpt_of_gt.cuda()
-                delta_rot = delta_rot.cuda()
-                delta_xyz = delta_xyz.cuda()
+                # delta_rot = delta_rot.cuda()
+                # delta_xyz = delta_xyz.cuda()
                 pcd_centroid = pcd_centroid.cuda()
                 pcd_mean = pcd_mean.cuda()
-                gripper_pose = gripper_pose.cuda()
+                # gripper_pose = gripper_pose.cuda()
                 #segmentation_target = segmentation_target.cuda()
                 heatmap_target = heatmap_target.cuda()
-                hole_top_rotation = hole_top_rotation.cuda()
+                # hole_top_rotation = hole_top_rotation.cuda()
                 '''
                 delta_rot = delta_rot.cuda()
                 delta_xyz = delta_xyz.cuda()
@@ -336,17 +337,17 @@ def main(args):
                 step_size = step_size.cuda()
                 '''
             kpt_of_pred, trans_of_pred, rot_of_pred, mean_kpt_pred, rot_mat_pred, confidence = network(points)
-            gripper_pos = gripper_pose[:, :3, 3]
-            gripper_rot = gripper_pose[:, :3, :3]
+            # gripper_pos = gripper_pose[:, :3, 3]
+            # gripper_rot = gripper_pose[:, :3, :3]
             #points = points.transpose(2, 1)
             #kpt_pred = points - kpt_of_pred
             #mean_kpt_pred = torch.mean(kpt_pred, dim=1)
-            real_kpt_pred = (mean_kpt_pred * pcd_mean) + pcd_centroid
-            real_kpt_pred = real_kpt_pred / 1000  #unit: mm to m
-            real_trans_of_pred = (trans_of_pred * pcd_mean) / 1000 #unit: mm to m
-            delta_trans_pred = real_kpt_pred - gripper_pos + real_trans_of_pred
-            delta_rot_pred = torch.bmm(torch.transpose(gripper_rot, 1, 2), rot_mat_pred)
-            delta_rot_pred = torch.bmm(delta_rot_pred, rot_of_pred)
+            # real_kpt_pred = (mean_kpt_pred * pcd_mean) + pcd_centroid
+            # real_kpt_pred = real_kpt_pred / 1000  #unit: mm to m
+            # real_trans_of_pred = (trans_of_pred * pcd_mean) / 1000 #unit: mm to m
+            # delta_trans_pred = real_kpt_pred - gripper_pos + real_trans_of_pred
+            # delta_rot_pred = torch.bmm(torch.transpose(gripper_rot, 1, 2), rot_mat_pred)
+            # delta_rot_pred = torch.bmm(delta_rot_pred, rot_of_pred)
             '''
             heatmap_pred, action_pred, step_size_pred = network(points)
             # action control
@@ -364,9 +365,9 @@ def main(args):
             loss = loss_r + loss_t + loss_heatmap + loss_step_size
             '''
             loss_kptof = criterion_kptof(kpt_of_pred, kpt_of_gt, heatmap_target).sum()
-            loss_t = (1-criterion_cos(delta_trans_pred, delta_xyz)).mean() + criterion_rmse(delta_trans_pred, delta_xyz)
-            loss_r = criterion_rmse(delta_rot_pred, delta_rot)
-            loss_hole_rotation = criterion_rmse(rot_mat_pred, hole_top_rotation) ###
+            # loss_t = (1-criterion_cos(delta_trans_pred, delta_xyz)).mean() + criterion_rmse(delta_trans_pred, delta_xyz)
+            # loss_r = criterion_rmse(delta_rot_pred, delta_rot)
+            # loss_hole_rotation = criterion_rmse(rot_mat_pred, hole_top_rotation) ###
             loss_mask = criterion_rmse(confidence, heatmap_target)
             # loss = loss_kptof + loss_t + loss_mask + loss_r
             # loss = loss_kptof + loss_mask + loss_hole_rotation ###
@@ -383,9 +384,9 @@ def main(args):
             train_step_size_error.append(loss_step_size.item())
             '''
             train_kptof_error.append(loss_kptof.item())
-            train_xyz_error.append(loss_t.item())
+            # train_xyz_error.append(loss_t.item())
             # train_rot_error.append(loss_r.item())
-            train_rot_error.append(loss_hole_rotation.item()) ###
+            # train_rot_error.append(loss_hole_rotation.item()) ###
             train_mask_error.append(loss_mask.item())
 
 
@@ -397,8 +398,8 @@ def main(args):
         train_step_size_error = sum(train_step_size_error) / len(train_step_size_error)
         '''
         train_kptof_error = sum(train_kptof_error) / len(train_kptof_error)
-        train_xyz_error = sum(train_xyz_error) / len(train_xyz_error)
-        train_rot_error = sum(train_rot_error) / len(train_rot_error)
+        # train_xyz_error = sum(train_xyz_error) / len(train_xyz_error)
+        # train_rot_error = sum(train_rot_error) / len(train_rot_error)
         train_mask_error = sum(train_mask_error) / len(train_mask_error)
         '''
         
@@ -406,25 +407,25 @@ def main(args):
         log_string('Train Heatmap Error: %f' % train_xyz_error)
         log_string('Train Step size Error: %f' % train_step_size_error)
         '''
-        log_string('Train Rotation Error: %f' % train_rot_error)
+        # log_string('Train Rotation Error: %f' % train_rot_error)
+        # log_string('Train Translation Error: %f' % train_xyz_error)
         log_string('Train Keypoint Offset Error: %f' % train_kptof_error)
-        log_string('Train Translation Error: %f' % train_xyz_error)
         log_string('Train Mask Error: %f' % train_mask_error)
         
-        writer.add_scalar('Training Rotation loss', train_rot_error, epoch)
         writer.add_scalar('Training kpt loss', train_kptof_error, epoch)
         writer.add_scalar('Training heatmap loss', train_mask_error, epoch)
 
         with torch.no_grad():
             #rot_error, xyz_error, heatmap_error, step_size_error = test(network.eval(), validDataLoader, out_channel, criterion_rmse, criterion_cos, criterion_bce)
-            kptof_error, xyz_error, rot_error, mask_error = test(network.eval(), validDataLoader, out_channel, criterion_rmse, criterion_cos, criterion_bce, criterion_kptof)
+            kptof_error, mask_error = test(network.eval(), validDataLoader, out_channel, criterion_rmse, criterion_cos, criterion_bce, criterion_kptof)
             
             #log_string('Test Rotation Error: %f, Translation Error: %f, Heatmap Error: %f, Step size Error: %f' % (rot_error, xyz_error, heatmap_error, step_size_error))
             #log_string('Best Rotation Error: %f, Translation Error: %f, Heatmap Error: %f, Step size Error: %f' % (best_rot_error, best_xyz_error, best_heatmap_error, best_step_size_error))
-            log_string('Test Keypoint offset Error: %f, Translation Error: %f, Rotation Error: %f, Mask Error: %f' % (kptof_error, xyz_error, rot_error, mask_error))
-            log_string('Best Keypoint offset Error: %f, Translation Error: %f, Rotation Error: %f, Mask Error: %f' % (best_kptof_error, best_xyz_error, best_rot_error, best_mask_error))
+            # log_string('Test Keypoint offset Error: %f, Translation Error: %f, Rotation Error: %f, Mask Error: %f' % (kptof_error, xyz_error, rot_error, mask_error))
+            # log_string('Best Keypoint offset Error: %f, Translation Error: %f, Rotation Error: %f, Mask Error: %f' % (best_kptof_error, best_xyz_error, best_rot_error, best_mask_error))
+            log_string('Test Keypoint offset Error: %f, Mask Error: %f' % (kptof_error, mask_error))
+            log_string('Best Keypoint offset Error: %f, Mask Error: %f' % (best_kptof_error, best_mask_error))
 
-            writer.add_scalar('testing Rotation loss', rot_error, epoch)
             writer.add_scalar('testing kpt loss', kptof_error, epoch)
             writer.add_scalar('testing heatmap loss', mask_error, epoch)
             '''
@@ -468,10 +469,11 @@ def main(args):
             #         'optimizer_state_dict': optimizer.state_dict(),
             #     }
             #     torch.save(state, savepath)
-            if (kptof_error + mask_error) < (best_kptof_error + best_mask_error): ####
+
+            if (kptof_error + mask_error) < (best_kptof_error + best_mask_error): 
                 best_kptof_error = kptof_error
-                best_xyz_error = xyz_error
-                best_rot_error = rot_error
+                # best_xyz_error = xyz_error
+                # best_rot_error = rot_error
                 best_mask_error = mask_error
                 best_epoch = epoch + 1
                 logger.info('Save model...')
@@ -480,8 +482,6 @@ def main(args):
                 state = {
                     'epoch': best_epoch,
                     'kptof_error': kptof_error,
-                    'xyz_error': xyz_error,
-                    'rot_error': rot_error,
                     'mask_error': mask_error,
                     'model_state_dict': network.state_dict(),
                     'optimizer_state_dict': optimizer.state_dict(),

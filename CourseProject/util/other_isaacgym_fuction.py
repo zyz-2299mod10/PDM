@@ -24,9 +24,10 @@ def orientation_error(desired, current):
 def euler_rotation_error_to_quaternion(euler_error):
     r = R.from_euler('xyz', euler_error, degrees=True) 
     quaternion = r.as_quat()  # [x, y, z, w]
+    quaternion = quaternion / np.linalg.norm(quaternion, axis=-1, keepdims=True)
 
-    vector_part = quaternion[:3]  
-    sign_adjustment = np.sign(quaternion[3])  
+    vector_part = quaternion[:, :3]  
+    sign_adjustment = np.sign(quaternion[:, 3]).reshape(-1, 1)
     result_vector = vector_part * sign_adjustment
 
     return result_vector

@@ -18,7 +18,7 @@ def world_2_camera_frame(cam_coordinate, query):
     cam_coordinate: camera local coordinate in world
     query: query location in world (tensor)
     '''
-    query = np.append(query.numpy(), [1], axis = 0).reshape(4, 1)
+    query = np.append(query.cpu().numpy(), [1], axis = 0).reshape(4, 1)
 
     world2cam = np.linalg.inv(cam_coordinate)
     query2cam = world2cam @ query

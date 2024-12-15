@@ -1,18 +1,19 @@
 import open3d as o3d
 import copy
+import numpy as np
 
 class icp():
     def __init__(self, source, target, voxel_size = 10):
         '''
         args:
-            source: open3d.pcd
-            target: open3d.pcd
+            source: open3d.pcd or numpy
+            target: open3d.pcd or numpy
         '''
         self.source = source
         self.target = target
         self.voxel_size = voxel_size
     
-    def draw_registration_result(self, source, target, store_name, transform = None):
+    def draw_registration_result(self, source, target, store_name, transform = None, coordinate = False):
         source_temp = copy.deepcopy(source)
         target_temp = copy.deepcopy(target)
         source_temp.paint_uniform_color([1, 0, 0])
@@ -20,12 +21,20 @@ class icp():
 
         if transform is not None:
             source_temp.transform(transform)
+
+        coordinate = o3d.geometry.TriangleMesh.create_coordinate_frame(size=1)
+        coordinate = coordinate.sample_points_uniformly(number_of_points=30000)
         
-        visualize_pcd = source_temp + target_temp
+        if coordinate:
+            visualize_pcd = source_temp + target_temp + coordinate
+        else:
+            visualize_pcd = source_temp + target_temp
+            
         o3d.io.write_point_cloud(store_name, visualize_pcd)
     
     def preprocess_point_cloud(self, pcd, voxel_size):
-        pcd_down = pcd.voxel_down_sample(voxel_size)
+        # pcd_down = pcd.voxel_down_sample(voxel_size)
+        pcd_down = pcd
 
         radius_normal = voxel_size * 2
         pcd_down.estimate_normals(
@@ -43,7 +52,7 @@ class icp():
         result = o3d.pipelines.registration.registration_ransac_based_on_feature_matching(
             source_down, target_down, source_fpfh, target_fpfh, True,
             distance_threshold,
-            o3d.pipelines.registration.TransformationEstimationPointToPoint(False),
+            o3d.pipelines.registration.TransformationEstimationPointToPoint(True),
             3, [
                 o3d.pipelines.registration.CorrespondenceCheckerBasedOnEdgeLength(
                     0.9),
@@ -79,3 +88,4 @@ class icp():
             self.draw_registration_result(self.source, self.target, store_name, result.transformation)
 
         return result.transformation
+    

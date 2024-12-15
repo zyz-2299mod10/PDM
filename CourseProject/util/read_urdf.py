@@ -30,10 +30,12 @@ class get_urdf_info:
         match = pattern.search(self.file_content)
 
         if match:
+            
             mesh_filename = match.group(1) # mesh_filename: ./obj-and-urdf/*.obj
             scale_values = match.group(2)
 
-            if scale_values:                
+            if scale_values:   
+                             
                 scale_values = np.array(scale_values.split()).astype(float)
                 
                 info["filename"] = os.path.abspath(mesh_filename)
@@ -41,6 +43,7 @@ class get_urdf_info:
                 
                 return info
             else:               
+                
                 info["filename"] = os.path.abspath(mesh_filename)              
                 info["scale"] = [1, 1, 1]
                 

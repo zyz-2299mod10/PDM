@@ -146,7 +146,7 @@ def main(args):
         # data_root = os.path.join('/home/hcis/YongZhe/CFVS_dataset', args.folder_path, 'processed')
         data_root = os.path.join('/home/hcis/YongZhe/CFVS_dataset/2022-06-16-coarse-squarehole/coarse_insertion_square_7x12x12_squarehole_2022-06-16', 'processed')
     elif args.data == 'my':
-        data_root = os.path.join(f'/home/hcis/YongZhe/PDM/{mode}/{obj}{type_mode}', 'processed')
+        data_root = os.path.join(f'/home/hcis/Perception/pdm-f24/PDM/{mode}/{obj}{type_mode}', 'processed')
 
     image_folder_path = os.path.join(data_root, 'images')
     pcd_folder_path = os.path.join(data_root, 'pcd')

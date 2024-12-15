@@ -114,7 +114,7 @@ if viewer is None:
     raise Exception("Failed to create viewer")
 
 asset_root = "/home/hcis/isaacgym/assets"
-urdf_root = "/home/hcis/YongZhe/PDM/PDM_urdf"
+urdf_root = "/home/hcis/Perception/pdm-f24/PDM/PDM_urdf"
 
 # create table asset
 table_dims = gymapi.Vec3(0.8, 0.8, 0.4)
@@ -124,14 +124,14 @@ table_asset = gym.create_box(sim, table_dims.x, table_dims.y, table_dims.z, asse
 
 
 # create usb place
-usb_place = 'Square_cube_bottle.urdf'
+usb_place = f"{args.object}_cube_bottle.urdf"
 asset_options = gymapi.AssetOptions()
 # asset_options.fix_base_link = True
 # asset_options.disable_gravity = True
 usb_place_asset = gym.load_asset(sim, urdf_root, usb_place, asset_options)
 
 # create usb
-usb = "Square_cube_cap.urdf" 
+usb = f"{args.object}_cube_cap.urdf" 
 asset_options = gymapi.AssetOptions()
 asset_options.disable_gravity = True
 asset_options.fix_base_link = True
@@ -415,7 +415,7 @@ net_force = gymtorch.wrap_tensor(_net_force)
 pos_action = torch.zeros_like(dof_pos).squeeze(-1).to(device)
 
 print("============================= grasp ===================================")
-with open("../grasping_pose/USBStick_2.pickle", "rb") as f:
+with open("./grasping_pose/USBStick_2.pickle", "rb") as f:
     grasp = pickle.load(f)
 
 z_mat = euler_xyz_to_matrix(0, 0, np.pi/2)
@@ -507,7 +507,7 @@ while not gym.query_viewer_has_closed(viewer):
     # determine if we're holding the box (grippers are closed and box is near)
     grasp_offset = 0.11
     gripper_sep = dof_pos[:, 7] + dof_pos[:, 8]
-    gripped = (gripper_sep < 0.021)
+    gripped = (gripper_sep < 0.05)
 
     # determine if we have reached the initial position; if so allow the hand to start moving to the box
     to_init = init_pos - hand_pos
