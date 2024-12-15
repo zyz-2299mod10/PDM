@@ -19,7 +19,7 @@ Then,
 ```
 # change the dataset path in `CFVS/config` and training code
 
-cd ./CFVS
+cd ./CFVS/mankey
 python ./train_pointnet2_kpts_no_oft.py
 
 # After training complete, put the training result in the `log` to the `./hole_estimation/mankey/log/kpts`
