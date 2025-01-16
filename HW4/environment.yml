@@ -1,0 +1,38 @@
+name: pdm-hw4
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+dependencies:
+  - ca-certificates
+  - libpng
+  - python=3.7.16
+  - pytorch=1.10.2
+  - torchvision=0.11.3
+  - cudatoolkit=11.3
+  - numpy=1.19.2
+  - scipy=1.5.2
+  - pillow=8.0.1
+  - tqdm=4.50.2
+  - scikit-image=0.18.1
+  - pytorch-lightning=1.2.5
+  - efficientnet-pytorch=0.7.0
+  - fvcore=0.1.2.post20201122
+  - pip=21.0.1
+  - timm
+  - pip:
+    - carla
+    - laspy[lazrs,laszip]
+    - webcolors
+    - ujson
+    - scipy
+    - rdp
+    - h5py
+    - opencv-python
+    - filterpy
+    - gym==0.26.2
+    - nuscenes-devkit==1.1.0
+    - lyft-dataset-sdk==0.0.8
+    - moviepy==1.0.3
+    - -r leaderboard/requirements.txt
+    - -r scenario_runner/requirements.txt
